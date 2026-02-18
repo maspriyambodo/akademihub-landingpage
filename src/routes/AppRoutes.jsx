@@ -4,6 +4,7 @@
  * Semua route didefinisikan di sini
  */
 import { Routes, Route } from 'react-router-dom';
+import App from '../App.jsx';
 import Home from '../pages/Home';
 import Pillars from '../pages/Pillars';
 import TechStack from '../pages/TechStack';
@@ -12,8 +13,10 @@ import Contact from '../pages/Contact';
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* Route Beranda */}
-      <Route path="/" element={<Home />} />
+      {/* Layout Route dengan App sebagai wrapper */}
+      <Route path="/" element={<App />}>
+        {/* Route Beranda */}
+        <Route index element={<Home />} />
       
       {/* Route 7 Pilar */}
       <Route path="/pillars" element={<Pillars />} />
@@ -85,6 +88,7 @@ const AppRoutes = () => {
           </div>
         } 
       />
+      </Route>
     </Routes>
   );
 };
