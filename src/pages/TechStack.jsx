@@ -296,7 +296,7 @@ const TechStack = () => {
       features: ['Halaman lebih cepat dimuat', 'Sesi login tersimpan', 'Antrian pesan WhatsApp', 'Pembatasan akses berlebih'],
     },
     {
-      name: 'Gudang File (MinIO)',
+      name: 'Gudang File Digital',
       version: 'Penyimpanan Berkas',
       icon: '🗄️',
       description: 'Gudang file digital — menyimpan foto, dokumen, dan materi pembelajaran dengan aman dan bisa diakses kapan saja.',
@@ -323,7 +323,7 @@ const TechStack = () => {
       features: ['Info absensi ke orang tua', 'Tagihan SPP otomatis', 'Update status PPDB', 'Peringatan dini siswa'],
     },
     {
-      name: 'Sistem Login Aman (JWT)',
+      name: 'Sistem Login Aman',
       version: 'Keamanan Akses',
       icon: '🔐',
       description: 'Sistem keamanan login — setiap pengguna hanya bisa mengakses fitur sesuai perannya: admin, guru, siswa, atau orang tua.',
@@ -332,7 +332,7 @@ const TechStack = () => {
       features: ['Login aman bertoken', 'Perpanjang sesi otomatis', 'Logout paksa dari server', '4 level hak akses'],
     },
     {
-      name: 'Infrastruktur Server (Docker)',
+      name: 'Infrastruktur Server',
       version: 'Pengelola Layanan',
       icon: '🐳',
       description: 'Seluruh komponen sistem dikemas rapi dalam satu paket — instalasi mudah dan siap dijalankan di server manapun.',
@@ -353,7 +353,7 @@ const TechStack = () => {
       features: ['Navigasi tanpa reload', 'Pembaruan tampilan cepat', 'Komponen bisa dipakai ulang', 'Muat halaman sesuai kebutuhan'],
     },
     {
-      name: 'Pengemas Aplikasi (Vite)',
+      name: 'Pengemas Aplikasi',
       version: 'Pembangun Aplikasi',
       icon: '⚡',
       description: 'Alat yang mengemas semua kode menjadi file ringan agar aplikasi terbuka dengan cepat di browser pengguna.',
@@ -362,7 +362,7 @@ const TechStack = () => {
       features: ['Preview perubahan instan', 'File aplikasi lebih kecil', 'Muat hanya yang dibutuhkan', 'Optimasi otomatis'],
     },
     {
-      name: 'Desain Antarmuka (Tailwind)',
+      name: 'Desain Antarmuka & Responsif',
       version: 'Tampilan & Warna',
       icon: '🎨',
       description: 'Sistem desain visual — mengatur warna, ukuran teks, dan tata letak agar tampilan terlihat profesional di semua ukuran layar.',
@@ -371,7 +371,7 @@ const TechStack = () => {
       features: ['Tampilan konsisten', 'Otomatis menyesuaikan layar', 'Mode gelap tersedia', 'Desain profesional'],
     },
     {
-      name: 'Koneksi Data & Tabel (Axios + AG Grid)',
+      name: 'Koneksi Data & Tabel Canggih',
       version: 'Pengambil & Penampil Data',
       icon: '📊',
       description: 'Jembatan antara tampilan dan server — mengambil data terbaru, lalu menampilkan ribuan baris data dengan lancar dan bisa difilter.',
@@ -385,7 +385,7 @@ const TechStack = () => {
     { color: '#60a5fa', title: '👤 Tampilan Pengguna (Browser)', items: ['Antarmuka Interaktif', 'Pengemas Aplikasi', ' Desain Visual', 'Axios · Pengambil Data', 'Tabel Canggih', 'Pembaruan Langsung Otomatis'] },
     { color: '#34d399', title: '🚦 Gerbang Lalu Lintas (Nginx)', items: ['Enkripsi HTTPS', 'File Statis & Gambar', 'WebSocket Pass-through', 'Koneksi ke Backend'] },
     { color: '#ef4444', title: '⚙️ Otak Sistem (Backend)', items: ['Pengontrol Permintaan', 'Logika Bisnis', 'Akses Database Terstruktur', 'Query Data Efisien', 'Proses Latar Belakang'] },
-    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['Database Utama', 'Cache & Antrian', 'MinIO · File & Dokumen'] },
+    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['Database Utama', 'Cache & Antrian', 'Gudang File Digital'] },
     { color: '#a78bfa', title: '🔔 Notifikasi & Integrasi', items: ['Pembaruan Langsung', 'WhatsApp · Pesan Otomatis', 'Antrian · Proses Background'] },
   ];
 
