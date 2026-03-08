@@ -269,7 +269,7 @@ const ArchArrow = styled.div`
 const TechStack = () => {
   const backendTechs = [
     {
-      name: 'Pemrograman Modern (Laravel)',
+      name: 'Pemrograman Modern',
       version: 'Otak Sistem',
       icon: '🔥',
       description: 'Otak di balik sistem — mengatur semua logika bisnis, dari proses login siswa hingga pembuatan laporan otomatis.',
@@ -278,7 +278,7 @@ const TechStack = () => {
       features: ['Pengelola data sekolah', 'Proses otomatis latar belakang', 'Query data cepat', 'Antrian tugas terjadwal'],
     },
     {
-      name: 'Database (MySQL)',
+      name: 'Database',
       version: 'Penyimpanan Data',
       icon: '🐬',
       description: 'Lemari arsip digital tempat semua data — siswa, nilai, keuangan — tersimpan rapi, aman, dan mudah dicari.',
@@ -287,7 +287,7 @@ const TechStack = () => {
       features: ['Simpan data siswa & guru', 'Pencarian data cepat', 'Hubungan antar data terstruktur', 'Efisien untuk data besar'],
     },
     {
-      name: 'Cache Cepat (Redis)',
+      name: 'Cache Cepat',
       version: 'Memori Sementara',
       icon: '⚡',
       description: 'Memori kilat sistem — menyimpan data yang sering diakses agar halaman aplikasi terbuka lebih cepat.',
@@ -305,7 +305,7 @@ const TechStack = () => {
       features: ['Upload foto & dokumen', 'Dokumen PPDB online', 'Materi pembelajaran', 'Ketersediaan tinggi'],
     },
     {
-      name: 'Notifikasi Instan (Reverb)',
+      name: 'Notifikasi Instan',
       version: 'Pembaruan Langsung',
       icon: '📡',
       description: 'Perubahan data langsung muncul di layar tanpa perlu refresh halaman — seperti fitur chat yang selalu up-to-date.',
@@ -344,7 +344,7 @@ const TechStack = () => {
 
   const frontendTechs = [
     {
-      name: 'Tampilan Interaktif (React)',
+      name: 'Tampilan Interaktif',
       version: 'Antarmuka Pengguna',
       icon: '⚛️',
       description: 'Teknologi di balik tampilan aplikasi — setiap tombol, formulir, dan halaman dibuat responsif dan cepat diperbarui.',
@@ -382,11 +382,11 @@ const TechStack = () => {
   ];
 
   const archLayers = [
-    { color: '#60a5fa', title: '👤 Tampilan Pengguna (Browser)', items: ['React · Antarmuka Interaktif', 'Vite · Pengemas Aplikasi', 'Tailwind · Desain Visual', 'Axios · Pengambil Data', 'AG Grid · Tabel Canggih', 'Pembaruan Langsung Otomatis'] },
+    { color: '#60a5fa', title: '👤 Tampilan Pengguna (Browser)', items: ['Antarmuka Interaktif', 'Pengemas Aplikasi', ' Desain Visual', 'Axios · Pengambil Data', 'Tabel Canggih', 'Pembaruan Langsung Otomatis'] },
     { color: '#34d399', title: '🚦 Gerbang Lalu Lintas (Nginx)', items: ['Enkripsi HTTPS', 'File Statis & Gambar', 'WebSocket Pass-through', 'Koneksi ke Backend'] },
-    { color: '#ef4444', title: '⚙️ Otak Sistem (Backend Laravel)', items: ['Pengontrol Permintaan', 'Logika Bisnis', 'Akses Database Terstruktur', 'Query Data Efisien', 'Proses Latar Belakang'] },
-    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['MySQL · Database Utama', 'Redis · Cache & Antrian', 'MinIO · File & Dokumen'] },
-    { color: '#a78bfa', title: '🔔 Notifikasi & Integrasi', items: ['Reverb · Pembaruan Langsung', 'WhatsApp · Pesan Otomatis', 'Antrian · Proses Background'] },
+    { color: '#ef4444', title: '⚙️ Otak Sistem (Backend)', items: ['Pengontrol Permintaan', 'Logika Bisnis', 'Akses Database Terstruktur', 'Query Data Efisien', 'Proses Latar Belakang'] },
+    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['Database Utama', 'Cache & Antrian', 'MinIO · File & Dokumen'] },
+    { color: '#a78bfa', title: '🔔 Notifikasi & Integrasi', items: ['Pembaruan Langsung', 'WhatsApp · Pesan Otomatis', 'Antrian · Proses Background'] },
   ];
 
   return (
