@@ -1,42 +1,79 @@
-/**
- * TechStack Page
- * Halaman yang menampilkan teknologi-teknologi yang digunakan AkademiHub
- * Menggunakan styled-components untuk styling
- */
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
 const PageContainer = styled.div`
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 68px);
+  background: #0f172a;
 `;
 
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, #0891b2 0%, #0e7490 50%, #155e75 100%);
-  padding: 4rem 2rem;
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+  padding: 5rem 2rem 4rem;
   text-align: center;
-  color: white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+`;
+
+const HeroTag = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  color: #67e8f9;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: clamp(1.875rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.125rem;
+  letter-spacing: -1px;
+  position: relative;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  span {
+    background: linear-gradient(135deg, #67e8f9 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.1rem;
-  opacity: 0.9;
-  max-width: 700px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 620px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.8;
+  position: relative;
 `;
 
 const ContentSection = styled.section`
-  padding: 4rem 2rem;
-  background: #f8fafc;
+  padding: 3.5rem 2rem 2rem;
 `;
 
 const Container = styled.div`
@@ -44,71 +81,97 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const TechGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+const CategoryLabel = styled.h2`
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: ${props => props.$color || '#60a5fa'};
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: ${props => props.$color || '#60a5fa'}28;
   }
 `;
 
+const TechGroupSection = styled.div`
+  margin-bottom: 3.5rem;
+`;
+
+const TechGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 1.25rem;
+`;
+
 const TechCard = styled.div`
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border-top: 4px solid ${props => props.$color};
+  background: #1e293b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid #1e293b;
+  border-top: 3px solid ${props => props.$color};
+  transition: all 0.3s;
+  animation: ${fadeUp} 0.5s ease-out ${props => props.$delay}s both;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    background: #243349;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    border-color: ${props => props.$color}45;
+    border-top-color: ${props => props.$color};
   }
 `;
 
 const TechHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.875rem;
+  margin-bottom: 0.875rem;
 `;
 
-const TechIcon = styled.div`
-  width: 60px;
-  height: 60px;
-  background: ${props => props.$bgColor};
-  border-radius: 12px;
+const TechIconWrap = styled.div`
+  width: 48px;
+  height: 48px;
+  background: ${props => props.$bg};
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
 `;
 
+const TechInfo = styled.div``;
+
 const TechName = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
 `;
 
 const TechVersion = styled.span`
   display: inline-block;
-  background: ${props => props.$bgColor};
+  background: ${props => props.$bg};
   color: ${props => props.$color};
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-top: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+  letter-spacing: 0.3px;
 `;
 
 const TechDescription = styled.p`
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.42);
   line-height: 1.7;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  font-size: 0.845rem;
+  margin-bottom: 0.875rem;
 `;
 
 const TechFeatures = styled.ul`
@@ -120,272 +183,301 @@ const TechFeatures = styled.ul`
 const TechFeature = styled.li`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #475569;
-  font-size: 0.85rem;
-  margin-bottom: 0.4rem;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.78rem;
+  margin-bottom: 0.3rem;
 
   &::before {
     content: '▸';
     color: ${props => props.$color};
-    font-weight: 700;
+    font-size: 0.68rem;
   }
 `;
 
-const ArchitectureSection = styled.section`
-  padding: 4rem 2rem;
-  background: white;
+/* ── Architecture ── */
+const ArchSection = styled.section`
+  padding: 0 2rem 5.5rem;
 `;
 
-const ArchitectureTitle = styled.h2`
+const ArchTitle = styled.h2`
   text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 2rem;
-`;
-
-const ArchitectureDiagram = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  background: #f8fafc;
-  border-radius: 16px;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-`;
-
-const ArchLayer = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid ${props => props.$color};
-`;
-
-const ArchLayerTitle = styled.h4`
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: ${props => props.$color};
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: white;
   margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
 `;
 
-const ArchItems = styled.div`
+const ArchSub = styled.p`
+  text-align: center;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+`;
+
+const ArchDiagram = styled.div`
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+`;
+
+const ArchBox = styled.div`
+  background: #1e293b;
+  border: 1px solid ${props => props.$color}28;
+  border-radius: 10px;
+  padding: 1.125rem 1.5rem;
+  text-align: center;
+`;
+
+const ArchBoxTitle = styled.div`
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: ${props => props.$color};
+  margin-bottom: 0.6rem;
+`;
+
+const ArchBoxItems = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  justify-content: center;
 `;
 
-const ArchItem = styled.span`
-  background: #f1f5f9;
-  padding: 0.4rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  color: #475569;
+const ArchChip = styled.span`
+  background: ${props => props.$color}12;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid ${props => props.$color}22;
+  padding: 0.25rem 0.65rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+`;
+
+const ArchArrow = styled.div`
+  text-align: center;
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 1.2rem;
+  line-height: 1;
 `;
 
 const TechStack = () => {
-  const technologies = [
+  const backendTechs = [
     {
-      name: 'React',
-      version: 'v18 / v19',
-      icon: '⚛️',
-      description: 'Library JavaScript modern untuk membangun antarmuka pengguna yang interaktif dan responsif.',
-      color: '#61dafb',
-      bgColor: '#e0f2fe',
-      features: [
-        'Component-based architecture',
-        'Virtual DOM untuk performa optimal',
-        'Hooks & Context API',
-        'React Router v7 untuk navigasi'
-      ]
+      name: 'PHP 8.3 + Laravel 12',
+      version: 'Backend Core',
+      icon: '🔥',
+      description: 'Full-stack framework dengan Clean Architecture: Controller → Service → Repository Pattern.',
+      color: '#ef4444',
+      bg: '#fee2e215',
+      features: ['PHP-FPM 8.3-alpine', 'Service & Repository', 'Eloquent ORM', 'Queue & Jobs'],
     },
     {
-      name: 'AkademiHub Core API',
-      version: 'RESTful API',
-      icon: '🔌',
-      description: 'API kustom yang dirancang khusus untuk kebutuhan sistem manajemen pendidikan AkademiHub.',
-      color: '#2563eb',
-      bgColor: '#dbeafe',
-      features: [
-        'RESTful architecture',
-        'JSON response format',
-        'Rate limiting & throttling',
-        'Comprehensive documentation'
-      ]
+      name: 'MySQL 8 / MariaDB',
+      version: 'Database',
+      icon: '🐬',
+      description: 'Database relasional utama dengan skema terstruktur, eager loading, dan indeks optimal.',
+      color: '#f97316',
+      bg: '#ffedd515',
+      features: ['Primary database', 'Eager loading', 'Cursor pagination', 'DB indexing'],
     },
     {
-      name: 'Jasper Report Engine',
-      version: 'Enterprise',
-      icon: '📊',
-      description: 'Engine pelaporan profesional untuk menghasilkan laporan akademik dan administrasi yang kompleks.',
-      color: '#ea580c',
-      bgColor: '#ffedd5',
-      features: [
-        'PDF & Excel export',
-        'Custom report templates',
-        'Chart & graph integration',
-        'Scheduled report generation'
-      ]
+      name: 'Redis',
+      version: 'In-Memory Cache',
+      icon: '⚡',
+      description: 'Cache query, session management, JWT blacklist, queue processing, dan rate limiting API.',
+      color: '#dc2626',
+      bg: '#fee2e215',
+      features: ['Query caching', 'Session store', 'JWT blacklist', 'Rate limiting'],
     },
     {
       name: 'MinIO S3',
       version: 'Object Storage',
       icon: '🗄️',
-      description: 'Solusi penyimpanan objek high-performance yang kompatibel dengan Amazon S3 API.',
+      description: 'Penyimpanan file S3-compatible—materi pembelajaran, dokumen PPDB, lampiran BK.',
       color: '#c2410c',
-      bgColor: '#fed7aa',
-      features: [
-        'S3-compatible API',
-        'High availability',
-        'Erasure coding',
-        'Bucket policies & encryption'
-      ]
+      bg: '#fed7aa15',
+      features: ['S3-compatible API', 'Presigned URLs', 'Bucket policies', 'High availability'],
     },
     {
-      name: 'Docker',
-      version: 'Containerization',
-      icon: '🐳',
-      description: 'Platform containerization untuk deployment yang konsisten dan scalable.',
-      color: '#2496ed',
-      bgColor: '#dbeafe',
-      features: [
-        'Container orchestration',
-        'Microservices ready',
-        'Environment consistency',
-        'Easy scaling & rollback'
-      ]
+      name: 'Laravel Reverb',
+      version: 'WebSocket',
+      icon: '📡',
+      description: 'WebSocket server first-party Laravel untuk real-time broadcasting event ke semua klien.',
+      color: '#0891b2',
+      bg: '#cffafe15',
+      features: ['Absensi live', 'Nilai broadcast', 'SPP updates', 'Dashboard activity'],
     },
     {
-      name: 'Redis',
-      version: 'In-Memory Store',
-      icon: '⚡',
-      description: 'Database in-memory untuk caching dan session management dengan performa tinggi.',
-      color: '#dc2626',
-      bgColor: '#fee2e2',
-      features: [
-        'Sub-millisecond latency',
-        'Session management',
-        'Real-time analytics',
-        'Pub/Sub messaging'
-      ]
+      name: 'WAHA WhatsApp API',
+      version: 'Messaging',
+      icon: '💬',
+      description: 'Self-hosted WhatsApp HTTP API dengan HMAC webhook untuk notifikasi otomatis ke orang tua.',
+      color: '#059669',
+      bg: '#d1fae515',
+      features: ['Notif absensi', 'Tagihan SPP', 'Status PPDB', 'Alert EWS'],
     },
     {
-      name: 'Laravel Sanctum',
-      version: 'Authentication',
+      name: 'JWT Authentication',
+      version: 'Auth & RBAC',
       icon: '🔐',
-      description: 'Sistem autentikasi ringan untuk SPA dan mobile applications.',
-      color: '#ef4444',
-      bgColor: '#fee2e2',
-      features: [
-        'Token-based auth',
-        'SPA authentication',
-        'Mobile app support',
-        'API token management'
-      ]
+      description: 'Token-based auth dengan refresh token, Redis blacklist, dan RBAC 4 role pengguna.',
+      color: '#7c3aed',
+      bg: '#ede9fe15',
+      features: ['Access token', 'Refresh token', 'Redis blacklist', 'RBAC 4 role'],
     },
     {
-      name: 'Laravel Passport',
-      version: 'OAuth2 Server',
-      icon: '🛡️',
-      description: 'Implementasi OAuth2 server lengkap untuk autentikasi third-party.',
-      color: '#f97316',
-      bgColor: '#ffedd5',
-      features: [
-        'OAuth2 compliant',
-        'Personal access tokens',
-        'Client credential grants',
-        'Scope management'
-      ]
-    }
+      name: 'Docker & Nginx',
+      version: 'Infrastructure',
+      icon: '🐳',
+      description: 'Multi-service Docker Compose untuk app, database, Redis, MinIO, dan Reverb—production ready.',
+      color: '#2496ed',
+      bg: '#dbeafe15',
+      features: ['Multi-service compose', 'Nginx reverse proxy', 'Volume mounts', 'SSL/TLS'],
+    },
   ];
 
-  const architectureLayers = [
+  const frontendTechs = [
     {
-      title: 'Presentation Layer',
-      color: '#2563eb',
-      items: ['React', 'Styled Components', 'React Router v7']
+      name: 'React 18',
+      version: 'UI Library',
+      icon: '⚛️',
+      description: 'Component-based architecture dengan Hooks, Context API, dan React Router v7.',
+      color: '#61dafb',
+      bg: '#e0f2fe15',
+      features: ['Hooks & Context', 'React Router v7', 'Code splitting', 'Lazy loading'],
     },
     {
-      title: 'API Gateway',
+      name: 'Vite 5',
+      version: 'Build Tool',
+      icon: '⚡',
+      description: 'Build tool ultra-cepat dengan HMR instan dan optimasi bundle untuk produksi.',
+      color: '#f97316',
+      bg: '#ffedd515',
+      features: ['HMR instant', 'ESM native', 'Tree shaking', 'Bundle analysis'],
+    },
+    {
+      name: 'Tailwind CSS v4',
+      version: 'Styling',
+      icon: '🎨',
+      description: 'Utility-first CSS framework versi 4 dengan engine CSS yang lebih cepat dan konfigurasi minimal.',
+      color: '#06b6d4',
+      bg: '#cffafe15',
+      features: ['Utility-first', 'CSS engine v4', 'Dark mode ready', 'Responsive design'],
+    },
+    {
+      name: 'Axios & AG Grid',
+      version: 'Data Layer',
+      icon: '📊',
+      description: 'Axios untuk REST API calls, AG Grid untuk tabel data besar dengan virtual scrolling.',
       color: '#7c3aed',
-      items: ['AkademiHub Core API', 'Laravel Sanctum', 'Laravel Passport']
+      bg: '#ede9fe15',
+      features: ['REST API client', 'AG Grid tables', 'Virtual scrolling', 'Column filters'],
     },
-    {
-      title: 'Application Layer',
-      color: '#059669',
-      items: ['Business Logic', 'Jasper Reports', 'Queue Workers']
-    },
-    {
-      title: 'Data Layer',
-      color: '#dc2626',
-      items: ['Primary Database', 'Redis Cache', 'MinIO S3 Storage']
-    },
-    {
-      title: 'Infrastructure',
-      color: '#0891b2',
-      items: ['Docker Containers', 'Load Balancer', 'Monitoring']
-    }
+  ];
+
+  const archLayers = [
+    { color: '#60a5fa', title: 'Client Browser', items: ['React 18', 'Vite 5', 'Tailwind CSS v4', 'Axios', 'AG Grid', 'Laravel Echo + Pusher.js'] },
+    { color: '#34d399', title: 'Nginx — Reverse Proxy', items: ['SSL Termination', 'Static Files', 'WebSocket Proxy', 'PHP-FPM Upstream'] },
+    { color: '#ef4444', title: 'Laravel 12 — PHP 8.3', items: ['Controllers', 'Service Layer', 'Repository Pattern', 'Eloquent ORM', 'Queue Workers'] },
+    { color: '#f97316', title: 'Data & Storage', items: ['MySQL 8 · Primary DB', 'Redis · Cache / Session / Queue', 'MinIO S3 · File Storage'] },
+    { color: '#a78bfa', title: 'Real-time & Integrations', items: ['Laravel Reverb · WebSocket', 'WAHA · WhatsApp API', 'Queue · Broadcast Events'] },
   ];
 
   return (
     <PageContainer>
       <HeroSection>
-        <HeroTitle>Tech Stack Kami</HeroTitle>
+        <HeroTag>Architecture &amp; Stack</HeroTag>
+        <HeroTitle>
+          Tech Stack <span>Modern</span>
+        </HeroTitle>
         <HeroSubtitle>
-          AkademiHub dibangun dengan teknologi modern dan terpercaya untuk
-          memastikan performa, keamanan, dan skalabilitas terbaik
+          Dibangun dengan teknologi production-grade—Laravel 12, PHP 8.3, React 18, Redis,
+          MinIO, WebSocket real-time, dan integrasi WhatsApp otomatis.
         </HeroSubtitle>
       </HeroSection>
 
       <ContentSection>
         <Container>
-          <TechGrid>
-            {technologies.map((tech, index) => (
-              <TechCard key={index} $color={tech.color}>
-                <TechHeader>
-                  <TechIcon $bgColor={tech.bgColor}>{tech.icon}</TechIcon>
-                  <div>
-                    <TechName>{tech.name}</TechName>
-                    <TechVersion $bgColor={tech.bgColor} $color={tech.color}>
-                      {tech.version}
-                    </TechVersion>
-                  </div>
-                </TechHeader>
-                <TechDescription>{tech.description}</TechDescription>
-                <TechFeatures>
-                  {tech.features.map((feature, idx) => (
-                    <TechFeature key={idx} $color={tech.color}>
-                      {feature}
-                    </TechFeature>
-                  ))}
-                </TechFeatures>
-              </TechCard>
-            ))}
-          </TechGrid>
+          {/* Backend */}
+          <TechGroupSection>
+            <CategoryLabel $color="#ef4444">🔥 Backend Stack</CategoryLabel>
+            <TechGrid>
+              {backendTechs.map((tech, i) => (
+                <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
+                  <TechHeader>
+                    <TechIconWrap $bg={tech.bg}>{tech.icon}</TechIconWrap>
+                    <TechInfo>
+                      <TechName>{tech.name}</TechName>
+                      <TechVersion $bg={tech.bg} $color={tech.color}>{tech.version}</TechVersion>
+                    </TechInfo>
+                  </TechHeader>
+                  <TechDescription>{tech.description}</TechDescription>
+                  <TechFeatures>
+                    {tech.features.map((f, j) => (
+                      <TechFeature key={j} $color={tech.color}>{f}</TechFeature>
+                    ))}
+                  </TechFeatures>
+                </TechCard>
+              ))}
+            </TechGrid>
+          </TechGroupSection>
+
+          {/* Frontend */}
+          <TechGroupSection>
+            <CategoryLabel $color="#60a5fa">⚛️ Frontend Stack</CategoryLabel>
+            <TechGrid>
+              {frontendTechs.map((tech, i) => (
+                <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
+                  <TechHeader>
+                    <TechIconWrap $bg={tech.bg}>{tech.icon}</TechIconWrap>
+                    <TechInfo>
+                      <TechName>{tech.name}</TechName>
+                      <TechVersion $bg={tech.bg} $color={tech.color}>{tech.version}</TechVersion>
+                    </TechInfo>
+                  </TechHeader>
+                  <TechDescription>{tech.description}</TechDescription>
+                  <TechFeatures>
+                    {tech.features.map((f, j) => (
+                      <TechFeature key={j} $color={tech.color}>{f}</TechFeature>
+                    ))}
+                  </TechFeatures>
+                </TechCard>
+              ))}
+            </TechGrid>
+          </TechGroupSection>
         </Container>
       </ContentSection>
 
-      <ArchitectureSection>
+      {/* Architecture Diagram */}
+      <ArchSection>
         <Container>
-          <ArchitectureTitle>Arsitektur Sistem</ArchitectureTitle>
-          <ArchitectureDiagram>
-            {architectureLayers.map((layer, index) => (
-              <ArchLayer key={index} $color={layer.color}>
-                <ArchLayerTitle $color={layer.color}>{layer.title}</ArchLayerTitle>
-                <ArchItems>
-                  {layer.items.map((item, idx) => (
-                    <ArchItem key={idx}>{item}</ArchItem>
-                  ))}
-                </ArchItems>
-              </ArchLayer>
+          <ArchTitle>Arsitektur Sistem</ArchTitle>
+          <ArchSub>
+            Stack berlapis dari UI ke database—setiap layer memiliki tanggung jawab yang jelas dan terisolasi.
+          </ArchSub>
+          <ArchDiagram>
+            {archLayers.map((layer, i) => (
+              <div key={i}>
+                <ArchBox $color={layer.color}>
+                  <ArchBoxTitle $color={layer.color}>{layer.title}</ArchBoxTitle>
+                  <ArchBoxItems>
+                    {layer.items.map((item, j) => (
+                      <ArchChip key={j} $color={layer.color}>{item}</ArchChip>
+                    ))}
+                  </ArchBoxItems>
+                </ArchBox>
+                {i < archLayers.length - 1 && <ArchArrow>↓</ArchArrow>}
+              </div>
             ))}
-          </ArchitectureDiagram>
+          </ArchDiagram>
         </Container>
-      </ArchitectureSection>
+      </ArchSection>
     </PageContainer>
   );
 };
