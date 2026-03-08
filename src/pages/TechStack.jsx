@@ -269,136 +269,136 @@ const ArchArrow = styled.div`
 const TechStack = () => {
   const backendTechs = [
     {
-      name: 'PHP 8.3 + Laravel 12',
-      version: 'Backend Core',
+      name: 'Pemrograman Modern (Laravel)',
+      version: 'Otak Sistem',
       icon: '🔥',
-      description: 'Full-stack framework dengan Clean Architecture: Controller → Service → Repository Pattern.',
+      description: 'Otak di balik sistem — mengatur semua logika bisnis, dari proses login siswa hingga pembuatan laporan otomatis.',
       color: '#ef4444',
       bg: '#fee2e215',
-      features: ['PHP-FPM 8.3-alpine', 'Service & Repository', 'Eloquent ORM', 'Queue & Jobs'],
+      features: ['Pengelola data sekolah', 'Proses otomatis latar belakang', 'Query data cepat', 'Antrian tugas terjadwal'],
     },
     {
-      name: 'MySQL 8 / MariaDB',
-      version: 'Database',
+      name: 'Database (MySQL)',
+      version: 'Penyimpanan Data',
       icon: '🐬',
-      description: 'Database relasional utama dengan skema terstruktur, eager loading, dan indeks optimal.',
+      description: 'Lemari arsip digital tempat semua data — siswa, nilai, keuangan — tersimpan rapi, aman, dan mudah dicari.',
       color: '#f97316',
       bg: '#ffedd515',
-      features: ['Primary database', 'Eager loading', 'Cursor pagination', 'DB indexing'],
+      features: ['Simpan data siswa & guru', 'Pencarian data cepat', 'Hubungan antar data terstruktur', 'Efisien untuk data besar'],
     },
     {
-      name: 'Redis',
-      version: 'In-Memory Cache',
+      name: 'Cache Cepat (Redis)',
+      version: 'Memori Sementara',
       icon: '⚡',
-      description: 'Cache query, session management, JWT blacklist, queue processing, dan rate limiting API.',
+      description: 'Memori kilat sistem — menyimpan data yang sering diakses agar halaman aplikasi terbuka lebih cepat.',
       color: '#dc2626',
       bg: '#fee2e215',
-      features: ['Query caching', 'Session store', 'JWT blacklist', 'Rate limiting'],
+      features: ['Halaman lebih cepat dimuat', 'Sesi login tersimpan', 'Antrian pesan WhatsApp', 'Pembatasan akses berlebih'],
     },
     {
-      name: 'MinIO S3',
-      version: 'Object Storage',
+      name: 'Gudang File (MinIO)',
+      version: 'Penyimpanan Berkas',
       icon: '🗄️',
-      description: 'Penyimpanan file S3-compatible—materi pembelajaran, dokumen PPDB, lampiran BK.',
+      description: 'Gudang file digital — menyimpan foto, dokumen, dan materi pembelajaran dengan aman dan bisa diakses kapan saja.',
       color: '#c2410c',
       bg: '#fed7aa15',
-      features: ['S3-compatible API', 'Presigned URLs', 'Bucket policies', 'High availability'],
+      features: ['Upload foto & dokumen', 'Dokumen PPDB online', 'Materi pembelajaran', 'Ketersediaan tinggi'],
     },
     {
-      name: 'Laravel Reverb',
-      version: 'WebSocket',
+      name: 'Notifikasi Instan (Reverb)',
+      version: 'Pembaruan Langsung',
       icon: '📡',
-      description: 'WebSocket server first-party Laravel untuk real-time broadcasting event ke semua klien.',
+      description: 'Perubahan data langsung muncul di layar tanpa perlu refresh halaman — seperti fitur chat yang selalu up-to-date.',
       color: '#0891b2',
       bg: '#cffafe15',
-      features: ['Absensi live', 'Nilai broadcast', 'SPP updates', 'Dashboard activity'],
+      features: ['Absensi tampil langsung', 'Nilai terbaru seketika', 'Update tagihan real-time', 'Dashboard aktif otomatis'],
     },
     {
-      name: 'WAHA WhatsApp API',
-      version: 'Messaging',
+      name: 'Pesan WhatsApp Otomatis',
+      version: 'Notifikasi Orang Tua',
       icon: '💬',
-      description: 'Self-hosted WhatsApp HTTP API dengan HMAC webhook untuk notifikasi otomatis ke orang tua.',
+      description: 'Kirim pesan otomatis ke orang tua lewat WhatsApp — mulai dari info absensi, tagihan SPP, hingga pengumuman sekolah.',
       color: '#059669',
       bg: '#d1fae515',
-      features: ['Notif absensi', 'Tagihan SPP', 'Status PPDB', 'Alert EWS'],
+      features: ['Info absensi ke orang tua', 'Tagihan SPP otomatis', 'Update status PPDB', 'Peringatan dini siswa'],
     },
     {
-      name: 'JWT Authentication',
-      version: 'Auth & RBAC',
+      name: 'Sistem Login Aman (JWT)',
+      version: 'Keamanan Akses',
       icon: '🔐',
-      description: 'Token-based auth dengan refresh token, Redis blacklist, dan RBAC 4 role pengguna.',
+      description: 'Sistem keamanan login — setiap pengguna hanya bisa mengakses fitur sesuai perannya: admin, guru, siswa, atau orang tua.',
       color: '#7c3aed',
       bg: '#ede9fe15',
-      features: ['Access token', 'Refresh token', 'Redis blacklist', 'RBAC 4 role'],
+      features: ['Login aman bertoken', 'Perpanjang sesi otomatis', 'Logout paksa dari server', '4 level hak akses'],
     },
     {
-      name: 'Docker & Nginx',
-      version: 'Infrastructure',
+      name: 'Infrastruktur Server (Docker)',
+      version: 'Pengelola Layanan',
       icon: '🐳',
-      description: 'Multi-service Docker Compose untuk app, database, Redis, MinIO, dan Reverb—production ready.',
+      description: 'Seluruh komponen sistem dikemas rapi dalam satu paket — instalasi mudah dan siap dijalankan di server manapun.',
       color: '#2496ed',
       bg: '#dbeafe15',
-      features: ['Multi-service compose', 'Nginx reverse proxy', 'Volume mounts', 'SSL/TLS'],
+      features: ['Instalasi satu perintah', 'Gerbang lalu lintas web', 'Data tersimpan aman', 'Enkripsi HTTPS'],
     },
   ];
 
   const frontendTechs = [
     {
-      name: 'React 18',
-      version: 'UI Library',
+      name: 'Tampilan Interaktif (React)',
+      version: 'Antarmuka Pengguna',
       icon: '⚛️',
-      description: 'Component-based architecture dengan Hooks, Context API, dan React Router v7.',
+      description: 'Teknologi di balik tampilan aplikasi — setiap tombol, formulir, dan halaman dibuat responsif dan cepat diperbarui.',
       color: '#61dafb',
       bg: '#e0f2fe15',
-      features: ['Hooks & Context', 'React Router v7', 'Code splitting', 'Lazy loading'],
+      features: ['Navigasi tanpa reload', 'Pembaruan tampilan cepat', 'Komponen bisa dipakai ulang', 'Muat halaman sesuai kebutuhan'],
     },
     {
-      name: 'Vite 5',
-      version: 'Build Tool',
+      name: 'Pengemas Aplikasi (Vite)',
+      version: 'Pembangun Aplikasi',
       icon: '⚡',
-      description: 'Build tool ultra-cepat dengan HMR instan dan optimasi bundle untuk produksi.',
+      description: 'Alat yang mengemas semua kode menjadi file ringan agar aplikasi terbuka dengan cepat di browser pengguna.',
       color: '#f97316',
       bg: '#ffedd515',
-      features: ['HMR instant', 'ESM native', 'Tree shaking', 'Bundle analysis'],
+      features: ['Preview perubahan instan', 'File aplikasi lebih kecil', 'Muat hanya yang dibutuhkan', 'Optimasi otomatis'],
     },
     {
-      name: 'Tailwind CSS v4',
-      version: 'Styling',
+      name: 'Desain Antarmuka (Tailwind)',
+      version: 'Tampilan & Warna',
       icon: '🎨',
-      description: 'Utility-first CSS framework versi 4 dengan engine CSS yang lebih cepat dan konfigurasi minimal.',
+      description: 'Sistem desain visual — mengatur warna, ukuran teks, dan tata letak agar tampilan terlihat profesional di semua ukuran layar.',
       color: '#06b6d4',
       bg: '#cffafe15',
-      features: ['Utility-first', 'CSS engine v4', 'Dark mode ready', 'Responsive design'],
+      features: ['Tampilan konsisten', 'Otomatis menyesuaikan layar', 'Mode gelap tersedia', 'Desain profesional'],
     },
     {
-      name: 'Axios & AG Grid',
-      version: 'Data Layer',
+      name: 'Koneksi Data & Tabel (Axios + AG Grid)',
+      version: 'Pengambil & Penampil Data',
       icon: '📊',
-      description: 'Axios untuk REST API calls, AG Grid untuk tabel data besar dengan virtual scrolling.',
+      description: 'Jembatan antara tampilan dan server — mengambil data terbaru, lalu menampilkan ribuan baris data dengan lancar dan bisa difilter.',
       color: '#7c3aed',
       bg: '#ede9fe15',
-      features: ['REST API client', 'AG Grid tables', 'Virtual scrolling', 'Column filters'],
+      features: ['Ambil data dari server', 'Tabel ribuan baris lancar', 'Filter & urutkan kolom', 'Ekspor data mudah'],
     },
   ];
 
   const archLayers = [
-    { color: '#60a5fa', title: 'Client Browser', items: ['React 18', 'Vite 5', 'Tailwind CSS v4', 'Axios', 'AG Grid', 'Laravel Echo + Pusher.js'] },
-    { color: '#34d399', title: 'Nginx — Reverse Proxy', items: ['SSL Termination', 'Static Files', 'WebSocket Proxy', 'PHP-FPM Upstream'] },
-    { color: '#ef4444', title: 'Laravel 12 — PHP 8.3', items: ['Controllers', 'Service Layer', 'Repository Pattern', 'Eloquent ORM', 'Queue Workers'] },
-    { color: '#f97316', title: 'Data & Storage', items: ['MySQL 8 · Primary DB', 'Redis · Cache / Session / Queue', 'MinIO S3 · File Storage'] },
-    { color: '#a78bfa', title: 'Real-time & Integrations', items: ['Laravel Reverb · WebSocket', 'WAHA · WhatsApp API', 'Queue · Broadcast Events'] },
+    { color: '#60a5fa', title: '👤 Tampilan Pengguna (Browser)', items: ['React · Antarmuka Interaktif', 'Vite · Pengemas Aplikasi', 'Tailwind · Desain Visual', 'Axios · Pengambil Data', 'AG Grid · Tabel Canggih', 'Pembaruan Langsung Otomatis'] },
+    { color: '#34d399', title: '🚦 Gerbang Lalu Lintas (Nginx)', items: ['Enkripsi HTTPS', 'File Statis & Gambar', 'WebSocket Pass-through', 'Koneksi ke Backend'] },
+    { color: '#ef4444', title: '⚙️ Otak Sistem (Backend Laravel)', items: ['Pengontrol Permintaan', 'Logika Bisnis', 'Akses Database Terstruktur', 'Query Data Efisien', 'Proses Latar Belakang'] },
+    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['MySQL · Database Utama', 'Redis · Cache & Antrian', 'MinIO · File & Dokumen'] },
+    { color: '#a78bfa', title: '🔔 Notifikasi & Integrasi', items: ['Reverb · Pembaruan Langsung', 'WhatsApp · Pesan Otomatis', 'Antrian · Proses Background'] },
   ];
 
   return (
     <PageContainer>
       <HeroSection>
-        <HeroTag>Architecture &amp; Stack</HeroTag>
+        <HeroTag>Teknologi &amp; Infrastruktur</HeroTag>
         <HeroTitle>
-          Tech Stack <span>Modern</span>
+          Teknologi <span>Terpercaya</span>
         </HeroTitle>
         <HeroSubtitle>
-          Dibangun dengan teknologi production-grade—Laravel 12, PHP 8.3, React 18, Redis,
-          MinIO, WebSocket real-time, dan integrasi WhatsApp otomatis.
+          Dibangun dengan teknologi modern yang andal — tampilan responsif, penyimpanan data aman,
+          notifikasi WhatsApp otomatis ke orang tua, hingga pembaruan data secara langsung tanpa perlu refresh halaman.
         </HeroSubtitle>
       </HeroSection>
 
@@ -406,7 +406,7 @@ const TechStack = () => {
         <Container>
           {/* Backend */}
           <TechGroupSection>
-            <CategoryLabel $color="#ef4444">🔥 Backend Stack</CategoryLabel>
+            <CategoryLabel $color="#ef4444">🔥 Teknologi Server (Backend)</CategoryLabel>
             <TechGrid>
               {backendTechs.map((tech, i) => (
                 <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
@@ -430,7 +430,7 @@ const TechStack = () => {
 
           {/* Frontend */}
           <TechGroupSection>
-            <CategoryLabel $color="#60a5fa">⚛️ Frontend Stack</CategoryLabel>
+            <CategoryLabel $color="#60a5fa">⚛️ Teknologi Tampilan (Frontend)</CategoryLabel>
             <TechGrid>
               {frontendTechs.map((tech, i) => (
                 <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
@@ -457,9 +457,9 @@ const TechStack = () => {
       {/* Architecture Diagram */}
       <ArchSection>
         <Container>
-          <ArchTitle>Arsitektur Sistem</ArchTitle>
+          <ArchTitle>Cara Kerja Sistem</ArchTitle>
           <ArchSub>
-            Stack berlapis dari UI ke database—setiap layer memiliki tanggung jawab yang jelas dan terisolasi.
+            Alur sistem dari tampilan pengguna hingga penyimpanan data — setiap lapisan punya peran khusus yang saling mendukung.
           </ArchSub>
           <ArchDiagram>
             {archLayers.map((layer, i) => (
