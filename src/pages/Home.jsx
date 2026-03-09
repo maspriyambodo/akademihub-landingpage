@@ -551,37 +551,37 @@ const CTASecondary = styled(Link)`
 
 const Home = () => {
   const features = [
-    { icon: '🔄', bg: '#dbeafe', title: 'Terintegrasi Penuh', desc: 'Semua modul saling terhubung—nilai, absensi, SPP, dan laporan dalam satu ekosistem digital.' },
-    { icon: '📡', bg: '#ede9fe', title: 'Real-Time WebSocket', desc: 'Notifikasi live via Laravel Reverb: update absensi, nilai posting, dan konfirmasi pembayaran.' },
-    { icon: '💬', bg: '#d1fae5', title: 'Notifikasi WhatsApp', desc: 'Kirim otomatis ke orang tua—tagihan SPP, kehadiran siswa, status PPDB, dan alert EWS.' },
-    { icon: '🔐', bg: '#fee2e2', title: 'RBAC & Keamanan', desc: '4 role pengguna: Admin, Guru, Siswa, Wali—dengan JWT auth, Redis blacklist, dan hak akses granular.' },
-    { icon: '📊', bg: '#fef3c7', title: 'Analytics & SPK', desc: 'Dashboard analitik, perangkingan siswa otomatis, Early Warning System, dan rekomendasi beasiswa.' },
-    { icon: '☁️', bg: '#cffafe', title: 'Cloud-Ready & Docker', desc: 'Arsitektur containerized dengan MinIO S3, Redis cache, Nginx reverse proxy—siap produksi.' },
+    { icon: '🔄', bg: '#dbeafe', title: 'Semua Bagian Saling Terhubung', desc: 'Data nilai, absensi, pembayaran, dan laporan saling terhubung dalam satu aplikasi.' },
+    { icon: '📡', bg: '#ede9fe', title: 'Perubahan Langsung Terlihat', desc: 'Saat ada perubahan data seperti absensi, nilai, atau pembayaran, informasi bisa langsung muncul tanpa menunggu lama.' },
+    { icon: '💬', bg: '#d1fae5', title: 'Pesan WhatsApp Otomatis', desc: 'Sekolah bisa mengirim pesan otomatis ke orang tua untuk tagihan, kehadiran siswa, dan informasi pendaftaran.' },
+    { icon: '🔐', bg: '#fee2e2', title: 'Akses Lebih Aman', desc: 'Setiap pengguna seperti admin, guru, siswa, dan wali murid hanya bisa membuka fitur yang sesuai kebutuhannya.' },
+    { icon: '📊', bg: '#fef3c7', title: 'Laporan dan Penilaian Otomatis', desc: 'Sistem membantu menampilkan ringkasan data, menyusun peringkat siswa, dan memberi tanda jika ada hal penting yang perlu diperhatikan.' },
+    { icon: '☁️', bg: '#cffafe', title: 'Siap Dipakai Secara Stabil', desc: 'Sistem disusun agar tetap aman, rapi, dan siap digunakan untuk kebutuhan sekolah dalam jangka panjang.' },
   ];
 
   const modules = [
-    { num: '01', icon: '🏛️', title: 'Manajemen & Master', desc: 'Data sekolah, tahun ajaran, kelas, guru, siswa, wali murid.', color: '#3b82f6', tags: ['Multi-Tenant', 'RBAC', 'Profil Sekolah'] },
-    { num: '02', icon: '📚', title: 'Akademik Digital', desc: 'Materi, tugas, ujian online, nilai, e-rapor, absensi, jadwal.', color: '#7c3aed', tags: ['E-Rapor', 'Ujian Online', 'Bank Soal'] },
-    { num: '03', icon: '💰', title: 'Keuangan SPP', desc: 'Tarif per kelas, pembayaran, invoice otomatis, laporan real-time.', color: '#059669', tags: ['Invoice', 'WhatsApp', 'Laporan'] },
-    { num: '04', icon: '🤝', title: 'Bimbingan Konseling', desc: 'Kasus BK, sesi konseling, tindakan, dan rekomendasi karir.', color: '#dc2626', tags: ['Kasus BK', 'Konseling', 'Rekomendasi'] },
-    { num: '05', icon: '📖', title: 'Perpustakaan Digital', desc: 'Katalog buku, peminjaman & pengembalian, tracking denda.', color: '#d97706', tags: ['Katalog', 'Peminjaman', 'Denda'] },
-    { num: '06', icon: '📝', title: 'PPDB Online', desc: 'Pendaftaran 24/7, verifikasi dokumen, seleksi, dan pengumuman.', color: '#0891b2', tags: ['Pendaftaran', 'Dokumen', 'Seleksi'] },
-    { num: '07', icon: '🎯', title: 'SPK & Analytics', desc: 'Perangkingan siswa, rekomendasi beasiswa, EWS, dan statistik.', color: '#be123c', tags: ['Ranking', 'EWS', 'Beasiswa'] },
+    { num: '01', icon: '🏛️', title: 'Data Sekolah Utama', desc: 'Mengelola data dasar sekolah seperti kelas, guru, siswa, wali murid, dan tahun ajaran.', color: '#3b82f6', tags: ['Data Sekolah', 'Hak Akses', 'Profil Sekolah'] },
+    { num: '02', icon: '📚', title: 'Kegiatan Belajar', desc: 'Mengatur materi, tugas, ujian, nilai, rapor digital, absensi, dan jadwal pelajaran.', color: '#7c3aed', tags: ['Rapor Digital', 'Ujian Online', 'Soal'] },
+    { num: '03', icon: '💰', title: 'Pembayaran Sekolah', desc: 'Mengatur tagihan, pembayaran, bukti tagihan otomatis, dan laporan keuangan sekolah.', color: '#059669', tags: ['Tagihan', 'WhatsApp', 'Laporan'] },
+    { num: '04', icon: '🤝', title: 'Bimbingan Konseling', desc: 'Mencatat masalah siswa, sesi konseling, tindak lanjut, dan saran untuk perkembangan siswa.', color: '#dc2626', tags: ['Catatan Siswa', 'Konseling', 'Tindak Lanjut'] },
+    { num: '05', icon: '📖', title: 'Perpustakaan Digital', desc: 'Mengatur daftar buku, peminjaman, pengembalian, dan catatan denda bila ada keterlambatan.', color: '#d97706', tags: ['Daftar Buku', 'Peminjaman', 'Denda'] },
+    { num: '06', icon: '📝', title: 'Pendaftaran Siswa Baru', desc: 'Melayani pendaftaran online, pengecekan dokumen, proses seleksi, dan pengumuman hasil.', color: '#0891b2', tags: ['Pendaftaran', 'Dokumen', 'Seleksi'] },
+    { num: '07', icon: '🎯', title: 'Laporan dan Rekomendasi', desc: 'Membantu melihat peringkat siswa, memberi rekomendasi beasiswa, dan menampilkan data penting sekolah.', color: '#be123c', tags: ['Peringkat', 'Peringatan Dini', 'Beasiswa'] },
   ];
 
   const techStack = [
-    { icon: '🐘', label: 'PHP 8.3' },
-    { icon: '🔥', label: 'Laravel 12' },
-    { icon: '⚛️', label: 'React 18' },
-    { icon: '⚡', label: 'Vite 5' },
-    { icon: '🐬', label: 'MySQL 8' },
-    { icon: '🔴', label: 'Redis' },
-    { icon: '🗄️', label: 'MinIO S3' },
-    { icon: '🐳', label: 'Docker' },
-    { icon: '📡', label: 'Reverb WS' },
-    { icon: '💬', label: 'WAHA WA' },
-    { icon: '🔐', label: 'JWT Auth' },
-    { icon: '🌐', label: 'Nginx' },
+    { icon: '⚡', label: 'Aplikasi terasa cepat' },
+    { icon: '🔒', label: 'Data lebih aman' },
+    { icon: '📱', label: 'Nyaman di HP & laptop' },
+    { icon: '🔄', label: 'Perubahan cepat terlihat' },
+    { icon: '🗂️', label: 'Data tersimpan rapi' },
+    { icon: '🚀', label: 'Akses halaman lebih ringan' },
+    { icon: '🖼️', label: 'File & dokumen tersimpan aman' },
+    { icon: '🛠️', label: 'Mudah dikelola tim teknis' },
+    { icon: '📡', label: 'Info penting tampil langsung' },
+    { icon: '💬', label: 'Pesan WhatsApp otomatis' },
+    { icon: '👤', label: 'Hak akses tiap pengguna jelas' },
+    { icon: '🌐', label: 'Website stabil saat diakses' },
   ];
 
   return (
@@ -600,9 +600,9 @@ const Home = () => {
             <span className="gradient">Cerdas &amp; Terintegrasi</span>
           </HeroTitle>
           <HeroSubtitle>
-            Platform manajemen sekolah lengkap dengan 7 modul utama—dari akademik,
-            keuangan, PPDB, hingga BK—didukung real-time WebSocket dan notifikasi
-            WhatsApp otomatis untuk seluruh stakeholder.
+            Aplikasi sekolah lengkap dengan 7 bagian utama untuk mengelola kegiatan belajar,
+            pembayaran, pendaftaran siswa baru, hingga bimbingan konseling. Informasi penting
+            juga bisa langsung diperbarui dan dikirim otomatis ke orang tua lewat WhatsApp.
           </HeroSubtitle>
           <HeroButtons>
             <BtnPrimary href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
@@ -623,11 +623,11 @@ const Home = () => {
             </HeroMetric>
             <HeroMetric>
               <div className="num">99.9%</div>
-              <div className="label">Uptime SLA</div>
+              <div className="label">Sistem Stabil</div>
             </HeroMetric>
             <HeroMetric>
               <div className="num">4</div>
-              <div className="label">Role Pengguna</div>
+              <div className="label">Jenis Pengguna</div>
             </HeroMetric>
           </HeroMetrics>
         </HeroContent>
@@ -652,8 +652,8 @@ const Home = () => {
           <SectionTag>Keunggulan Platform</SectionTag>
           <SectionTitle>Kenapa Sekolah Pintar?</SectionTitle>
           <SectionSubtitle>
-            Bukan sekadar sistem informasi—Sekolah Pintar menghadirkan ekosistem
-            digital lengkap yang terhubung real-time untuk seluruh stakeholder.
+            Bukan hanya tempat menyimpan data, tetapi aplikasi yang membantu sekolah,
+            guru, siswa, dan orang tua tetap terhubung dalam satu sistem.
           </SectionSubtitle>
           <FeatGrid>
             {features.map((f, i) => (
@@ -673,8 +673,8 @@ const Home = () => {
           <SectionTag style={{ color: '#60a5fa' }}>7 Modul Terintegrasi</SectionTag>
           <ModulesSectionTitle>Satu Platform, Semua Kebutuhan</ModulesSectionTitle>
           <ModulesSectionSub>
-            Dari manajemen data master hingga sistem pendukung keputusan—
-            semua terhubung, semua real-time.
+            Dari pengelolaan data sekolah sampai laporan penting,
+            semuanya berada dalam satu aplikasi yang saling terhubung.
           </ModulesSectionSub>
           <ModulesGrid>
             {modules.map((m, i) => (
@@ -704,15 +704,15 @@ const Home = () => {
         <CTAContent>
           <CTATitle>Siap Transformasi Digital?</CTATitle>
           <CTASub>
-            Akses demo langsung atau pelajari arsitektur teknis platform untuk memastikan
-            Sekolah Pintar sesuai kebutuhan institusi pendidikan Anda.
+            Coba demo langsung atau pelajari cara kerja sistemnya untuk melihat
+            apakah Sekolah Pintar cocok untuk kebutuhan sekolah Anda.
           </CTASub>
           <CTAButtons>
             <CTAPrimary href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
               🚀 Akses Demo
             </CTAPrimary>
             <CTASecondary to="/techstack">
-              📐 Lihat Tech Stack
+              📐 Lihat Cara Kerja Sistem
             </CTASecondary>
           </CTAButtons>
         </CTAContent>

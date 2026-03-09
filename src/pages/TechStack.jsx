@@ -272,73 +272,73 @@ const TechStack = () => {
       name: 'Pemrograman Modern',
       version: 'Otak Sistem',
       icon: '🔥',
-      description: 'Otak di balik sistem — mengatur semua logika bisnis, dari proses login siswa hingga pembuatan laporan otomatis.',
+      description: 'Bagian utama yang menjalankan perintah penting di sistem, seperti login, menyimpan data, dan membuat laporan secara otomatis.',
       color: '#ef4444',
       bg: '#fee2e215',
-      features: ['Pengelola data sekolah', 'Proses otomatis latar belakang', 'Query data cepat', 'Antrian tugas terjadwal'],
+      features: ['Mengatur proses penting aplikasi', 'Menjalankan tugas otomatis', 'Mengambil data dengan cepat', 'Mengatur pekerjaan yang antre'],
     },
     {
       name: 'Database',
       version: 'Penyimpanan Data',
       icon: '🐬',
-      description: 'Lemari arsip digital tempat semua data — siswa, nilai, keuangan — tersimpan rapi, aman, dan mudah dicari.',
+      description: 'Tempat penyimpanan utama untuk semua data sekolah, seperti data siswa, nilai, dan pembayaran, agar rapi dan mudah dicari.',
       color: '#f97316',
       bg: '#ffedd515',
-      features: ['Simpan data siswa & guru', 'Pencarian data cepat', 'Hubungan antar data terstruktur', 'Efisien untuk data besar'],
+      features: ['Menyimpan data sekolah', 'Mencari data lebih cepat', 'Data saling terhubung rapi', 'Tetap lancar untuk data banyak'],
     },
     {
       name: 'Cache Cepat',
       version: 'Memori Sementara',
       icon: '⚡',
-      description: 'Memori kilat sistem — menyimpan data yang sering diakses agar halaman aplikasi terbuka lebih cepat.',
+      description: 'Penyimpanan sementara untuk data yang sering dibuka agar aplikasi terasa lebih cepat.',
       color: '#dc2626',
       bg: '#fee2e215',
-      features: ['Halaman lebih cepat dimuat', 'Sesi login tersimpan', 'Antrian pesan WhatsApp', 'Pembatasan akses berlebih'],
+      features: ['Membuat halaman lebih cepat', 'Menyimpan status login sementara', 'Membantu antrean pesan WhatsApp', 'Mencegah akses terlalu sering'],
     },
     {
       name: 'Gudang File Digital',
       version: 'Penyimpanan Berkas',
       icon: '🗄️',
-      description: 'Gudang file digital — menyimpan foto, dokumen, dan materi pembelajaran dengan aman dan bisa diakses kapan saja.',
+      description: 'Tempat menyimpan file seperti foto, dokumen, dan materi belajar agar aman dan mudah diakses.',
       color: '#c2410c',
       bg: '#fed7aa15',
-      features: ['Upload foto & dokumen', 'Dokumen PPDB online', 'Materi pembelajaran', 'Ketersediaan tinggi'],
+      features: ['Simpan foto dan dokumen', 'Menyimpan berkas pendaftaran', 'Menyimpan materi belajar', 'File tetap mudah diakses'],
     },
     {
       name: 'Notifikasi Instan',
       version: 'Pembaruan Langsung',
       icon: '📡',
-      description: 'Perubahan data langsung muncul di layar tanpa perlu refresh halaman — seperti fitur chat yang selalu up-to-date.',
+      description: 'Perubahan data bisa langsung terlihat di layar tanpa perlu memuat ulang halaman.',
       color: '#0891b2',
       bg: '#cffafe15',
-      features: ['Absensi tampil langsung', 'Nilai terbaru seketika', 'Update tagihan real-time', 'Dashboard aktif otomatis'],
+      features: ['Absensi langsung terlihat', 'Nilai terbaru cepat muncul', 'Tagihan langsung diperbarui', 'Dashboard selalu up to date'],
     },
     {
       name: 'Pesan WhatsApp Otomatis',
       version: 'Notifikasi Orang Tua',
       icon: '💬',
-      description: 'Kirim pesan otomatis ke orang tua lewat WhatsApp — mulai dari info absensi, tagihan SPP, hingga pengumuman sekolah.',
+      description: 'Sistem bisa mengirim pesan WhatsApp otomatis ke orang tua untuk absensi, tagihan, dan pengumuman sekolah.',
       color: '#059669',
       bg: '#d1fae515',
-      features: ['Info absensi ke orang tua', 'Tagihan SPP otomatis', 'Update status PPDB', 'Peringatan dini siswa'],
+      features: ['Kirim info absensi', 'Kirim tagihan otomatis', 'Memberi kabar status pendaftaran', 'Mengirim peringatan penting lebih cepat'],
     },
     {
       name: 'Sistem Login Aman',
       version: 'Keamanan Akses',
       icon: '🔐',
-      description: 'Sistem keamanan login — setiap pengguna hanya bisa mengakses fitur sesuai perannya: admin, guru, siswa, atau orang tua.',
+      description: 'Keamanan login yang memastikan setiap pengguna hanya melihat fitur yang sesuai dengan perannya.',
       color: '#7c3aed',
       bg: '#ede9fe15',
-      features: ['Login aman bertoken', 'Perpanjang sesi otomatis', 'Logout paksa dari server', '4 level hak akses'],
+      features: ['Login lebih aman', 'Sesi bisa diperpanjang otomatis', 'Keluar akun bisa dikendalikan dari pusat', 'Hak akses dibagi sesuai pengguna'],
     },
     {
       name: 'Infrastruktur Server',
       version: 'Pengelola Layanan',
       icon: '🐳',
-      description: 'Seluruh komponen sistem dikemas rapi dalam satu paket — instalasi mudah dan siap dijalankan di server manapun.',
+      description: 'Susunan layanan server dibuat rapi agar sistem mudah dipasang, dijalankan, dan dipindahkan bila diperlukan.',
       color: '#2496ed',
       bg: '#dbeafe15',
-      features: ['Instalasi satu perintah', 'Gerbang lalu lintas web', 'Data tersimpan aman', 'Enkripsi HTTPS'],
+      features: ['Pemasangan lebih mudah', 'Mengatur jalur akses website', 'Data tetap aman', 'Koneksi website terenkripsi'],
     },
   ];
 
@@ -347,46 +347,46 @@ const TechStack = () => {
       name: 'Tampilan Interaktif',
       version: 'Antarmuka Pengguna',
       icon: '⚛️',
-      description: 'Teknologi di balik tampilan aplikasi — setiap tombol, formulir, dan halaman dibuat responsif dan cepat diperbarui.',
+      description: 'Bagian yang membuat tampilan aplikasi terlihat rapi, mudah dipakai, dan cepat berubah saat ada data baru.',
       color: '#61dafb',
       bg: '#e0f2fe15',
-      features: ['Navigasi tanpa reload', 'Pembaruan tampilan cepat', 'Komponen bisa dipakai ulang', 'Muat halaman sesuai kebutuhan'],
+      features: ['Pindah halaman terasa mulus', 'Tampilan cepat diperbarui', 'Bagian tampilan bisa dipakai ulang', 'Halaman dimuat seperlunya'],
     },
     {
       name: 'Pengemas Aplikasi',
       version: 'Pembangun Aplikasi',
       icon: '⚡',
-      description: 'Alat yang mengemas semua kode menjadi file ringan agar aplikasi terbuka dengan cepat di browser pengguna.',
+      description: 'Alat yang menyiapkan aplikasi agar ukurannya lebih ringan dan lebih cepat dibuka di browser.',
       color: '#f97316',
       bg: '#ffedd515',
-      features: ['Preview perubahan instan', 'File aplikasi lebih kecil', 'Muat hanya yang dibutuhkan', 'Optimasi otomatis'],
+      features: ['Perubahan bisa dilihat cepat', 'Ukuran file aplikasi lebih ringan', 'Hanya bagian yang dibutuhkan yang dimuat', 'Aplikasi diatur lebih efisien otomatis'],
     },
     {
       name: 'Desain Antarmuka & Responsif',
       version: 'Tampilan & Warna',
       icon: '🎨',
-      description: 'Sistem desain visual — mengatur warna, ukuran teks, dan tata letak agar tampilan terlihat profesional di semua ukuran layar.',
+      description: 'Mengatur warna, huruf, dan posisi tampilan supaya aplikasi enak dilihat di HP, tablet, maupun komputer.',
       color: '#06b6d4',
       bg: '#cffafe15',
-      features: ['Tampilan konsisten', 'Otomatis menyesuaikan layar', 'Mode gelap tersedia', 'Desain profesional'],
+      features: ['Tampilan seragam di semua halaman', 'Menyesuaikan ukuran layar otomatis', 'Ada mode gelap', 'Terlihat rapi dan modern'],
     },
     {
       name: 'Koneksi Data & Tabel Canggih',
       version: 'Pengambil & Penampil Data',
       icon: '📊',
-      description: 'Jembatan antara tampilan dan server — mengambil data terbaru, lalu menampilkan ribuan baris data dengan lancar dan bisa difilter.',
+      description: 'Bagian yang mengambil data dari server lalu menampilkannya dengan rapi, bahkan saat datanya banyak.',
       color: '#7c3aed',
       bg: '#ede9fe15',
-      features: ['Ambil data dari server', 'Tabel ribuan baris lancar', 'Filter & urutkan kolom', 'Ekspor data mudah'],
+      features: ['Mengambil data terbaru', 'Menampilkan banyak data tetap lancar', 'Data bisa disaring dan diurutkan', 'Data mudah diunduh'],
     },
   ];
 
   const archLayers = [
-    { color: '#60a5fa', title: '👤 Tampilan Pengguna (Browser)', items: ['Antarmuka Interaktif', 'Pengemas Aplikasi', ' Desain Visual', 'Axios · Pengambil Data', 'Tabel Canggih', 'Pembaruan Langsung Otomatis'] },
-    { color: '#34d399', title: '🚦 Gerbang Lalu Lintas (Nginx)', items: ['Enkripsi HTTPS', 'File Statis & Gambar', 'WebSocket Pass-through', 'Koneksi ke Backend'] },
-    { color: '#ef4444', title: '⚙️ Otak Sistem (Backend)', items: ['Pengontrol Permintaan', 'Logika Bisnis', 'Akses Database Terstruktur', 'Query Data Efisien', 'Proses Latar Belakang'] },
-    { color: '#f97316', title: '🗃️ Penyimpanan Data', items: ['Database Utama', 'Cache & Antrian', 'Gudang File Digital'] },
-    { color: '#a78bfa', title: '🔔 Notifikasi & Integrasi', items: ['Pembaruan Langsung', 'WhatsApp · Pesan Otomatis', 'Antrian · Proses Background'] },
+    { color: '#60a5fa', title: '👤 Tampilan yang Dilihat Pengguna', items: ['Halaman aplikasi', 'Tombol dan formulir', 'Desain yang rapi', 'Pengambilan data', 'Tabel data', 'Perubahan tampil otomatis'] },
+    { color: '#34d399', title: '🚦 Pengatur Akses Website', items: ['Menjaga koneksi aman', 'Menampilkan file dan gambar', 'Meneruskan koneksi penting', 'Menghubungkan ke server utama'] },
+    { color: '#ef4444', title: '⚙️ Bagian Utama Pengolah Data', items: ['Menerima permintaan', 'Menjalankan aturan sistem', 'Mengatur akses ke data', 'Mengambil data dengan efisien', 'Menjalankan proses otomatis'] },
+    { color: '#f97316', title: '🗃️ Tempat Penyimpanan', items: ['Penyimpanan data utama', 'Penyimpanan sementara dan antrean', 'Penyimpanan file digital'] },
+    { color: '#a78bfa', title: '🔔 Sistem Pemberitahuan', items: ['Update langsung di layar', 'Pesan WhatsApp otomatis', 'Proses kirim berjalan di belakang'] },
   ];
 
   return (
@@ -394,11 +394,12 @@ const TechStack = () => {
       <HeroSection>
         <HeroTag>Teknologi &amp; Infrastruktur</HeroTag>
         <HeroTitle>
-          Teknologi <span>Terpercaya</span>
+          Sistem yang <span>Mudah Dipahami</span>
         </HeroTitle>
         <HeroSubtitle>
-          Dibangun dengan teknologi modern yang andal — tampilan responsif, penyimpanan data aman,
-          notifikasi WhatsApp otomatis ke orang tua, hingga pembaruan data secara langsung tanpa perlu refresh halaman.
+          Halaman ini menjelaskan bagian-bagian utama yang membuat aplikasi sekolah bekerja:
+          mulai dari tampilan yang mudah dipakai, penyimpanan data yang aman, sampai pesan otomatis
+          ke orang tua dan perubahan data yang langsung terlihat.
         </HeroSubtitle>
       </HeroSection>
 
@@ -406,7 +407,7 @@ const TechStack = () => {
         <Container>
           {/* Backend */}
           <TechGroupSection>
-            <CategoryLabel $color="#ef4444">🔥 Teknologi Server (Backend)</CategoryLabel>
+            <CategoryLabel $color="#ef4444">🔥 Bagian Belakang Sistem</CategoryLabel>
             <TechGrid>
               {backendTechs.map((tech, i) => (
                 <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
@@ -430,7 +431,7 @@ const TechStack = () => {
 
           {/* Frontend */}
           <TechGroupSection>
-            <CategoryLabel $color="#60a5fa">⚛️ Teknologi Tampilan (Frontend)</CategoryLabel>
+            <CategoryLabel $color="#60a5fa">⚛️ Bagian Tampilan Aplikasi</CategoryLabel>
             <TechGrid>
               {frontendTechs.map((tech, i) => (
                 <TechCard key={i} $color={tech.color} $delay={i * 0.055}>
@@ -457,9 +458,9 @@ const TechStack = () => {
       {/* Architecture Diagram */}
       <ArchSection>
         <Container>
-          <ArchTitle>Cara Kerja Sistem</ArchTitle>
+          <ArchTitle>Alur Kerja Sistem</ArchTitle>
           <ArchSub>
-            Alur sistem dari tampilan pengguna hingga penyimpanan data — setiap lapisan punya peran khusus yang saling mendukung.
+            Penjelasan sederhana tentang bagaimana aplikasi bekerja, dari yang dilihat pengguna sampai data tersimpan dengan aman.
           </ArchSub>
           <ArchDiagram>
             {archLayers.map((layer, i) => (
