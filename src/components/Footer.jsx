@@ -330,7 +330,7 @@ const Footer = () => {
           </LiveBadge>
           <SocialRow>
             <SocialBtn href="mailto:info@akademihub.id" title="Email">✉️</SocialBtn>
-            <SocialBtn href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</SocialBtn>
+            <SocialBtn href="https://wa.me/6281288891339" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</SocialBtn>
             <SocialBtn href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer" title="Platform">🌐</SocialBtn>
           </SocialRow>
         </Brand>
@@ -372,7 +372,7 @@ const Footer = () => {
             <ContactRow>
               <ContactIconBox>💬</ContactIconBox>
               <ContactText>
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/6281288891339" target="_blank" rel="noopener noreferrer">
                   WhatsApp Support
                 </a>
               </ContactText>

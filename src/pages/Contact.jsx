@@ -512,11 +512,11 @@ const Contact = () => {
     {
       icon: '💬',
       label: 'WhatsApp',
-      value: '+62 812-3456-7890',
+      value: '+62 812-8889-1339',
       action: 'Chat sekarang →',
       actionColor: '#059669',
       gradient: 'linear-gradient(135deg, #059669, #10b981)',
-      href: 'https://wa.me/6281234567890',
+      href: 'https://wa.me/6281288891339',
       delay: 0.08,
     },
     {
