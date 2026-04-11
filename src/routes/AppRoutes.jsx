@@ -3,16 +3,33 @@
  * Konfigurasi routing utama aplikasi menggunakan React Router v7
  * Semua route didefinisikan di sini
  */
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import App from '../App.jsx';
 import Home from '../pages/Home';
 import Pillars from '../pages/Pillars';
 import TechStack from '../pages/TechStack';
 import Contact from '../pages/Contact';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
+
+  return null;
+};
+
 const AppRoutes = () => {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       {/* Layout Route dengan App sebagai wrapper */}
       <Route path="/" element={<App />}>
         {/* Route Beranda */}
@@ -89,7 +106,8 @@ const AppRoutes = () => {
         } 
       />
       </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 };
 
