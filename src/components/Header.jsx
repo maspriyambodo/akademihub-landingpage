@@ -46,7 +46,6 @@ const Nav = styled.nav`
 const LogoWrap = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
   transition: opacity 0.2s;
   flex-shrink: 0;
@@ -54,38 +53,14 @@ const LogoWrap = styled(Link)`
   &:hover { opacity: 0.85; }
 `;
 
-const LogoIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-`;
+const LogoImg = styled.img`
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 
-const LogoTextWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-`;
-
-const LogoBrand = styled.span`
-  color: #0f172a;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-`;
-
-const LogoSub = styled.span`
-  color: #94a3b8;
-  font-size: 0.62rem;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  font-weight: 600;
+  @media (max-width: 768px) {
+    height: 30px;
+  }
 `;
 
 const NavLinks = styled.ul`
@@ -251,10 +226,7 @@ const Header = () => {
       <HeaderContainer $scrolled={scrolled}>
         <Nav>
           <LogoWrap to="/">
-            <LogoIcon>🎓</LogoIcon>
-            <LogoTextWrap>
-              <LogoBrand>Akademihub</LogoBrand>
-            </LogoTextWrap>
+            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub Logo" />
           </LogoWrap>
 
           <NavLinks>
