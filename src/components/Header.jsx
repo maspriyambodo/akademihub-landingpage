@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
 const slideDown = keyframes`
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
@@ -15,16 +15,16 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.header`
   background: ${props => props.$scrolled
-    ? 'rgba(255, 255, 255, 0.95)'
-    : 'rgba(255, 255, 255, 0.85)'};
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+    ? 'rgba(255, 255, 255, 0.94)'
+    : 'rgba(255, 255, 255, 0.82)'};
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
   border-bottom: 1px solid ${props => props.$scrolled
-    ? 'rgba(226, 232, 240, 0.8)'
-    : 'rgba(226, 232, 240, 0.4)'};
-  transition: all 0.3s ease;
+    ? 'rgba(226, 232, 240, 0.75)'
+    : 'rgba(226, 232, 240, 0.35)'};
+  transition: all 0.35s ease;
   box-shadow: ${props => props.$scrolled
-    ? '0 4px 24px rgba(0,0,0,0.06)'
+    ? '0 4px 24px rgba(0, 0, 0, 0.05)'
     : 'none'};
 `;
 
@@ -54,19 +54,19 @@ const LogoWrap = styled(Link)`
 `;
 
 const LogoImg = styled.img`
-  height: 36px;
+  height: 34px;
   width: auto;
   object-fit: contain;
 
   @media (max-width: 768px) {
-    height: 30px;
+    height: 28px;
   }
 `;
 
 const NavLinks = styled.ul`
   display: flex;
   list-style: none;
-  gap: 0.25rem;
+  gap: 0.2rem;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -81,9 +81,9 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
-  padding: 0.5rem 0.875rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 9px;
-  transition: all 0.2s;
+  transition: all 0.22s;
   position: relative;
 
   &:hover {
@@ -108,7 +108,7 @@ const DemoButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.55rem 1.25rem;
+  padding: 0.55rem 1.3rem;
   background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   color: white;
   border-radius: 10px;
@@ -116,12 +116,12 @@ const DemoButton = styled.a`
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s;
-  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.32);
   white-space: nowrap;
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.42);
   }
 
   @media (max-width: 480px) {
@@ -161,7 +161,7 @@ const MobileMenu = styled.div`
   display: ${props => props.$open ? 'flex' : 'none'};
   flex-direction: column;
   gap: 0.25rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
   animation: ${slideDown} 0.2s ease-out;
 `;
 
@@ -197,6 +197,11 @@ const MobileDemoBtn = styled.a`
   text-decoration: none;
   margin-top: 0.75rem;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.25s;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  }
 `;
 
 const Header = () => {
@@ -205,7 +210,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 18);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

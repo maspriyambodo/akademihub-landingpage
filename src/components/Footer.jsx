@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 const blink = keyframes`
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.25; }
 `;
 
 const FooterContainer = styled.footer`
@@ -17,11 +17,9 @@ const FooterContainer = styled.footer`
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.45), transparent);
   }
 `;
 
@@ -33,22 +31,21 @@ const FooterBg = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: -20%;
+    top: -22%;
     left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 65%);
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.035) 0%, transparent 65%);
     border-radius: 50%;
   }
-
   &::after {
     content: '';
     position: absolute;
-    bottom: 20%;
-    right: -5%;
+    bottom: 18%;
+    right: -6%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.035) 0%, transparent 65%);
     border-radius: 50%;
   }
 `;
@@ -66,14 +63,12 @@ const FooterContent = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
-
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
     gap: 2.25rem;
   }
 `;
 
-/* ── Brand Column ── */
 const Brand = styled.div``;
 
 const BrandLogoRow = styled.div`
@@ -93,13 +88,7 @@ const BrandIcon = styled.div`
   justify-content: center;
   font-size: 1.2rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-`;
-
-const BrandNames = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
 `;
 
 const BrandPrimary = styled.span`
@@ -109,16 +98,8 @@ const BrandPrimary = styled.span`
   letter-spacing: -0.3px;
 `;
 
-const BrandSub = styled.span`
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  font-weight: 600;
-`;
-
 const BrandDesc = styled.p`
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.36);
   font-size: 0.875rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -129,8 +110,8 @@ const LiveBadge = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid rgba(16, 185, 129, 0.18);
   color: #6ee7b7;
   padding: 0.4rem 1rem;
   border-radius: 50px;
@@ -139,11 +120,10 @@ const LiveBadge = styled.a`
   text-decoration: none;
   transition: all 0.2s;
   margin-bottom: 1.5rem;
-  display: inline-flex;
 
   &:hover {
-    background: rgba(16, 185, 129, 0.14);
-    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.28);
   }
 
   .dot {
@@ -160,14 +140,13 @@ const LiveBadge = styled.a`
 const SocialRow = styled.div`
   display: flex;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 `;
 
 const SocialBtn = styled.a`
   width: 36px;
   height: 36px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 9px;
   display: flex;
   align-items: center;
@@ -177,13 +156,12 @@ const SocialBtn = styled.a`
   transition: all 0.2s;
 
   &:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.14);
     transform: translateY(-2px);
   }
 `;
 
-/* ── Link Columns ── */
 const FooterGroup = styled.div``;
 
 const GroupTitle = styled.h4`
@@ -191,7 +169,7 @@ const GroupTitle = styled.h4`
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.48);
   margin-bottom: 1.25rem;
 `;
 
@@ -205,7 +183,7 @@ const FooterLinks = styled.ul`
 `;
 
 const FooterLink = styled(Link)`
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
@@ -220,7 +198,6 @@ const FooterLink = styled(Link)`
   }
 `;
 
-/* ── Contact Column ── */
 const ContactList = styled.div`
   display: flex;
   flex-direction: column;
@@ -236,8 +213,8 @@ const ContactRow = styled.div`
 const ContactIconBox = styled.div`
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -249,11 +226,11 @@ const ContactIconBox = styled.div`
 
 const ContactText = styled.div`
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.4);
   line-height: 1.5;
 
   a {
-    color: rgba(255, 255, 255, 0.42);
+    color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
     transition: color 0.2s;
 
@@ -263,13 +240,12 @@ const ContactText = styled.div`
   }
 `;
 
-/* ── Bottom Bar ── */
 const FooterDivider = styled.div`
   max-width: 1200px;
   margin: 3.5rem auto 0;
   padding: 0 2rem;
   height: 1px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.05);
 `;
 
 const FooterBottom = styled.div`
@@ -284,7 +260,7 @@ const FooterBottom = styled.div`
 `;
 
 const Copyright = styled.p`
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.22);
   font-size: 0.8rem;
   margin: 0;
 `;
@@ -296,9 +272,9 @@ const FooterBadges = styled.div`
 `;
 
 const FooterBadge = styled.span`
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.22);
   padding: 0.22rem 0.65rem;
   border-radius: 5px;
   font-size: 0.7rem;
@@ -316,9 +292,7 @@ const Footer = () => {
         <Brand>
           <BrandLogoRow>
             <BrandIcon>🎓</BrandIcon>
-            <BrandNames>
-              <BrandPrimary>Akademihub</BrandPrimary>
-            </BrandNames>
+            <BrandPrimary>AkademiHub</BrandPrimary>
           </BrandLogoRow>
           <BrandDesc>
             Platform manajemen sekolah lengkap dengan 7 modul utama yang saling
@@ -350,12 +324,13 @@ const Footer = () => {
         <FooterGroup>
           <GroupTitle>Modul Utama</GroupTitle>
           <FooterLinks>
-            <li><FooterLink to="/pillars">Kegiatan Belajar</FooterLink></li>
-            <li><FooterLink to="/pillars">Pembayaran SPP</FooterLink></li>
-            <li><FooterLink to="/pillars">Pendaftaran Siswa</FooterLink></li>
-            <li><FooterLink to="/pillars">Perpustakaan</FooterLink></li>
+            <li><FooterLink to="/pillars">Data Induk Sekolah</FooterLink></li>
+            <li><FooterLink to="/pillars">Kegiatan Belajar Mengajar</FooterLink></li>
+            <li><FooterLink to="/pillars">Pembayaran & Keuangan</FooterLink></li>
             <li><FooterLink to="/pillars">Bimbingan Konseling</FooterLink></li>
-            <li><FooterLink to="/pillars">Analisis & Laporan</FooterLink></li>
+            <li><FooterLink to="/pillars">Perpustakaan Digital</FooterLink></li>
+            <li><FooterLink to="/pillars">PPDB Online</FooterLink></li>
+            <li><FooterLink to="/pillars">Analisis & Rekomendasi</FooterLink></li>
           </FooterLinks>
         </FooterGroup>
 
@@ -401,10 +376,11 @@ const Footer = () => {
         </Copyright>
         <FooterBadges>
           <FooterBadge>7 Modul</FooterBadge>
-          <FooterBadge>40+ Fitur</FooterBadge>
-          <FooterBadge>Notif WhatsApp</FooterBadge>
+          <FooterBadge>80+ Fitur</FooterBadge>
+          <FooterBadge>WhatsApp Otomatis</FooterBadge>
           <FooterBadge>Rapor Digital</FooterBadge>
           <FooterBadge>PPDB Online</FooterBadge>
+          <FooterBadge>SPK & AI</FooterBadge>
         </FooterBadges>
       </FooterBottom>
     </FooterContainer>
