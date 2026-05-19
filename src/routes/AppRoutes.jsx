@@ -11,6 +11,94 @@ import Pillars from '../pages/Pillars';
 import TechStack from '../pages/TechStack';
 import Contact from '../pages/Contact';
 
+const REFERRAL_TRACKING_ENDPOINT =
+  import.meta.env.VITE_REFERRAL_TRACKING_ENDPOINT ||
+  'https://app.akademihub.id/api/v1/landing/referrals';
+
+const sendReferralToBackend = (payload) => {
+  if (!REFERRAL_TRACKING_ENDPOINT) {
+    return;
+  }
+
+  void fetch(REFERRAL_TRACKING_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(payload),
+    keepalive: true,
+  }).catch(() => {
+    // Keep client-side UX unaffected when tracking endpoint is unavailable.
+  });
+};
+
+const trackProductHuntReferral = ({ pathname, search }) => {
+  const params = new URLSearchParams(search);
+  const ref = params.get('ref')?.trim().toLowerCase();
+
+  if (ref !== 'producthunt') {
+    return;
+  }
+
+  // Prevent duplicate events in StrictMode and route re-renders.
+  const sessionEventKey = `akademihub:ref-track:${pathname}:${search}`;
+  if (sessionStorage.getItem(sessionEventKey)) {
+    return;
+  }
+  sessionStorage.setItem(sessionEventKey, new Date().toISOString());
+
+  const nowIso = new Date().toISOString();
+  const currentUrl = window.location.href;
+  const payload = {
+    event: 'referral_visit',
+    source: 'producthunt',
+    page_path: pathname,
+    page_search: search,
+    page_location: currentUrl,
+    timestamp: nowIso,
+    referrer: document.referrer || null,
+  };
+
+  const statsKey = 'akademihub:referral-stats';
+  const statsRaw = localStorage.getItem(statsKey);
+  const currentStats = statsRaw ? JSON.parse(statsRaw) : {};
+  const currentPageCount = currentStats.pages?.[pathname] ?? 0;
+
+  const nextStats = {
+    total: (currentStats.total ?? 0) + 1,
+    producthunt: (currentStats.producthunt ?? 0) + 1,
+    pages: {
+      ...(currentStats.pages ?? {}),
+      [pathname]: currentPageCount + 1,
+    },
+    lastVisitAt: nowIso,
+    lastUrl: currentUrl,
+  };
+
+  localStorage.setItem(statsKey, JSON.stringify(nextStats));
+
+  if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push(payload);
+  }
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'producthunt_referral_visit', {
+      page_path: pathname,
+      page_location: currentUrl,
+      source: 'producthunt',
+    });
+  }
+
+  sendReferralToBackend(payload);
+
+  window.dispatchEvent(
+    new CustomEvent('akademihub:referral', {
+      detail: payload,
+    }),
+  );
+};
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -25,10 +113,21 @@ const ScrollToTop = () => {
   return null;
 };
 
+const ReferralStatsTracker = () => {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    trackProductHuntReferral({ pathname, search });
+  }, [pathname, search]);
+
+  return null;
+};
+
 const AppRoutes = () => {
   return (
     <>
       <ScrollToTop />
+      <ReferralStatsTracker />
       <Routes>
       {/* Layout Route dengan App sebagai wrapper */}
       <Route path="/" element={<App />}>
