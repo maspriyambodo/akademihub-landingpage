@@ -1,25 +1,27 @@
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import { MailIcon, WhatsAppIcon, GlobeIcon, ArrowUpRightIcon, MapPinIcon } from './Icons';
 
-const blink = keyframes`
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
+const pulseDot = keyframes`
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.9); }
 `;
 
 const FooterContainer = styled.footer`
-  background: #020817;
-  color: white;
+  background: #030712;
+  color: #f8fafc;
   padding: 5rem 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0; left: 10%; right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.45), transparent);
+    background: linear-gradient(90deg, transparent, #06b6d4, #8b5cf6, transparent);
+    opacity: 0.8;
   }
 `;
 
@@ -31,33 +33,30 @@ const FooterBg = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: -22%;
-    left: -10%;
-    width: 480px;
-    height: 480px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.035) 0%, transparent 65%);
+    top: 0; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
     border-radius: 50%;
   }
   &::after {
     content: '';
     position: absolute;
-    bottom: 18%;
-    right: -6%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.035) 0%, transparent 65%);
+    bottom: 10%; right: -5%;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
     border-radius: 50%;
   }
 `;
 
 const FooterContent = styled.div`
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2.2fr 1fr 1.3fr 1.5fr;
   gap: 3.5rem;
   position: relative;
+  z-index: 1;
 
   @media (max-width: 960px) {
     grid-template-columns: 1fr 1fr;
@@ -78,41 +77,27 @@ const BrandLogoRow = styled.div`
   margin-bottom: 1.25rem;
 `;
 
-const BrandIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
-`;
-
-const BrandPrimary = styled.span`
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.3px;
+const LogoImg = styled.img`
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 `;
 
 const BrandDesc = styled.p`
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 0.875rem;
+  color: #94a3b8;
+  font-size: 0.88rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  max-width: 300px;
+  max-width: 320px;
 `;
 
 const LiveBadge = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(16, 185, 129, 0.07);
-  border: 1px solid rgba(16, 185, 129, 0.18);
-  color: #6ee7b7;
+  gap: 0.55rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #34d399;
   padding: 0.4rem 1rem;
   border-radius: 50px;
   font-size: 0.78rem;
@@ -122,42 +107,43 @@ const LiveBadge = styled.a`
   margin-bottom: 1.5rem;
 
   &:hover {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.28);
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
   }
 
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background: #10b981;
     border-radius: 50%;
-    animation: ${blink} 1.5s ease-in-out infinite;
-    flex-shrink: 0;
-    box-shadow: 0 0 4px #10b981;
+    animation: ${pulseDot} 1.8s ease-in-out infinite;
+    box-shadow: 0 0 8px #10b981;
   }
 `;
 
 const SocialRow = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 `;
 
 const SocialBtn = styled.a`
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  color: #94a3b8;
   text-decoration: none;
   transition: all 0.2s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.35);
+    color: #38bdf8;
     transform: translateY(-2px);
   }
 `;
@@ -165,12 +151,23 @@ const SocialBtn = styled.a`
 const FooterGroup = styled.div``;
 
 const GroupTitle = styled.h4`
-  font-size: 0.72rem;
+  color: #f8fafc;
+  font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.48);
+  letter-spacing: 1px;
   margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 12px;
+    background: #06b6d4;
+    border-radius: 2px;
+  }
 `;
 
 const FooterLinks = styled.ul`
@@ -179,21 +176,20 @@ const FooterLinks = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.65rem;
 `;
 
 const FooterLink = styled(Link)`
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.88rem;
   transition: all 0.2s;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.88);
+    color: #38bdf8;
     transform: translateX(3px);
   }
 `;
@@ -201,7 +197,7 @@ const FooterLink = styled(Link)`
 const ContactList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  gap: 0.85rem;
 `;
 
 const ContactRow = styled.div`
@@ -214,71 +210,70 @@ const ContactIconBox = styled.div`
   width: 32px;
   height: 32px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  color: #06b6d4;
   flex-shrink: 0;
-  margin-top: 0.05rem;
 `;
 
 const ContactText = styled.div`
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.88rem;
+  color: #94a3b8;
   line-height: 1.5;
 
   a {
-    color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
+    color: #cbd5e1;
     transition: color 0.2s;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.85);
-    }
+    &:hover { color: #38bdf8; }
   }
 `;
 
 const FooterDivider = styled.div`
-  max-width: 1200px;
-  margin: 3.5rem auto 0;
-  padding: 0 2rem;
   height: 1px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
+  max-width: 1240px;
+  margin: 4rem auto 0;
 `;
 
 const FooterBottom = styled.div`
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 1.5rem 2rem 2rem;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const Copyright = styled.p`
-  color: rgba(255, 255, 255, 0.22);
-  font-size: 0.8rem;
-  margin: 0;
+  color: #64748b;
+  font-size: 0.82rem;
 `;
 
 const FooterBadges = styled.div`
   display: flex;
-  gap: 0.4rem;
   flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
 `;
 
 const FooterBadge = styled.span`
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.22);
-  padding: 0.22rem 0.65rem;
-  border-radius: 5px;
-  font-size: 0.7rem;
+  color: #94a3b8;
+  font-size: 0.72rem;
   font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
 `;
 
 const Footer = () => {
@@ -288,72 +283,73 @@ const Footer = () => {
     <FooterContainer>
       <FooterBg />
       <FooterContent>
-        {/* Brand */}
         <Brand>
           <BrandLogoRow>
-            <BrandIcon>🎓</BrandIcon>
-            <BrandPrimary>AkademiHub</BrandPrimary>
+            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub" />
           </BrandLogoRow>
           <BrandDesc>
-            Platform manajemen sekolah lengkap dengan 7 modul utama yang saling
-            terhubung. Dirancang untuk memudahkan pengelolaan sekolah dari mana saja.
+            Sistem Informasi Akademik & Manajemen Sekolah Terpadu generasi baru. Mengintegrasikan seluruh aktivitas sekolah secara real-time dan otomatis.
           </BrandDesc>
           <LiveBadge href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
             <span className="dot" />
-            app.akademihub.id — Live
+            <span>app.akademihub.id — Cloud Platform</span>
+            <ArrowUpRightIcon size={14} />
           </LiveBadge>
           <SocialRow>
-            <SocialBtn href="mailto:info@akademihub.id" title="Email">✉️</SocialBtn>
-            <SocialBtn href="https://wa.me/6281288891339" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</SocialBtn>
-            <SocialBtn href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer" title="Platform">🌐</SocialBtn>
+            <SocialBtn href="mailto:info@akademihub.id" title="Email Kami">
+              <MailIcon size={18} />
+            </SocialBtn>
+            <SocialBtn href="https://wa.me/6281288891339" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+              <WhatsAppIcon size={18} />
+            </SocialBtn>
+            <SocialBtn href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer" title="Portal">
+              <GlobeIcon size={18} />
+            </SocialBtn>
           </SocialRow>
         </Brand>
 
-        {/* Navigation */}
         <FooterGroup>
           <GroupTitle>Navigasi</GroupTitle>
           <FooterLinks>
             <li><FooterLink to="/">Beranda</FooterLink></li>
-            <li><FooterLink to="/pillars">Fitur Lengkap</FooterLink></li>
-            <li><FooterLink to="/techstack">Cara Kerja</FooterLink></li>
+            <li><FooterLink to="/pillars">7 Modul Fitur</FooterLink></li>
+            <li><FooterLink to="/techstack">Arsitektur & Alur</FooterLink></li>
             <li><FooterLink to="/contact">Hubungi Kami</FooterLink></li>
           </FooterLinks>
         </FooterGroup>
 
-        {/* Modules */}
         <FooterGroup>
-          <GroupTitle>Modul Utama</GroupTitle>
+          <GroupTitle>7 Modul Utama</GroupTitle>
           <FooterLinks>
             <li><FooterLink to="/pillars">Data Induk Sekolah</FooterLink></li>
-            <li><FooterLink to="/pillars">Kegiatan Belajar Mengajar</FooterLink></li>
-            <li><FooterLink to="/pillars">Pembayaran & Keuangan</FooterLink></li>
+            <li><FooterLink to="/pillars">KBM & Ujian Online</FooterLink></li>
+            <li><FooterLink to="/pillars">Keuangan & Tagihan</FooterLink></li>
             <li><FooterLink to="/pillars">Bimbingan Konseling</FooterLink></li>
             <li><FooterLink to="/pillars">Perpustakaan Digital</FooterLink></li>
-            <li><FooterLink to="/pillars">PPDB Online</FooterLink></li>
-            <li><FooterLink to="/pillars">Analisis & Rekomendasi</FooterLink></li>
+            <li><FooterLink to="/pillars">PPDB Online Terpadu</FooterLink></li>
+            <li><FooterLink to="/pillars">SPK & Rekomendasi AI</FooterLink></li>
           </FooterLinks>
         </FooterGroup>
 
-        {/* Contact */}
         <FooterGroup>
-          <GroupTitle>Kontak</GroupTitle>
+          <GroupTitle>Kontak & Layanan</GroupTitle>
           <ContactList>
             <ContactRow>
-              <ContactIconBox>✉️</ContactIconBox>
+              <ContactIconBox><MailIcon size={16} /></ContactIconBox>
               <ContactText>
                 <a href="mailto:info@akademihub.id">info@akademihub.id</a>
               </ContactText>
             </ContactRow>
             <ContactRow>
-              <ContactIconBox>💬</ContactIconBox>
+              <ContactIconBox><WhatsAppIcon size={16} /></ContactIconBox>
               <ContactText>
                 <a href="https://wa.me/6281288891339" target="_blank" rel="noopener noreferrer">
-                  WhatsApp Support
+                  +62 812-8889-1339 (WA)
                 </a>
               </ContactText>
             </ContactRow>
             <ContactRow>
-              <ContactIconBox>🌐</ContactIconBox>
+              <ContactIconBox><GlobeIcon size={16} /></ContactIconBox>
               <ContactText>
                 <a href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
                   app.akademihub.id
@@ -361,8 +357,8 @@ const Footer = () => {
               </ContactText>
             </ContactRow>
             <ContactRow>
-              <ContactIconBox>🏢</ContactIconBox>
-              <ContactText>Indonesia</ContactText>
+              <ContactIconBox><MapPinIcon size={16} /></ContactIconBox>
+              <ContactText>Indonesia — Cloud Architecture</ContactText>
             </ContactRow>
           </ContactList>
         </FooterGroup>
@@ -372,15 +368,15 @@ const Footer = () => {
 
       <FooterBottom>
         <Copyright>
-          © {currentYear} AkademiHub · Hak cipta dilindungi undang-undang.
+          © {currentYear} AkademiHub. Sistem Informasi Sekolah Terpadu Kelas Dunia.
         </Copyright>
         <FooterBadges>
-          <FooterBadge>7 Modul</FooterBadge>
-          <FooterBadge>80+ Fitur</FooterBadge>
-          <FooterBadge>WhatsApp Otomatis</FooterBadge>
-          <FooterBadge>Rapor Digital</FooterBadge>
-          <FooterBadge>PPDB Online</FooterBadge>
-          <FooterBadge>SPK & AI</FooterBadge>
+          <FooterBadge>7 Modul Utama</FooterBadge>
+          <FooterBadge>80+ Fitur Terpadu</FooterBadge>
+          <FooterBadge>WhatsApp Gateway</FooterBadge>
+          <FooterBadge>Rapor Digital KM</FooterBadge>
+          <FooterBadge>PPDB Digital</FooterBadge>
+          <FooterBadge>SPK Smart Decision</FooterBadge>
         </FooterBadges>
       </FooterBottom>
     </FooterContainer>

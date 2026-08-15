@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
+import { ArrowUpRightIcon, SparklesIcon } from './Icons';
 
 const slideDown = keyframes`
-  from { opacity: 0; transform: translateY(-6px); }
+  from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
@@ -11,25 +12,26 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 `;
 
 const HeaderContainer = styled.header`
   background: ${props => props.$scrolled
-    ? 'rgba(255, 255, 255, 0.94)'
-    : 'rgba(255, 255, 255, 0.82)'};
-  backdrop-filter: blur(24px) saturate(1.8);
-  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    ? 'rgba(3, 7, 18, 0.88)'
+    : 'rgba(3, 7, 18, 0.65)'};
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid ${props => props.$scrolled
-    ? 'rgba(226, 232, 240, 0.75)'
-    : 'rgba(226, 232, 240, 0.35)'};
-  transition: all 0.35s ease;
+    ? 'rgba(255, 255, 255, 0.1)'
+    : 'rgba(255, 255, 255, 0.05)'};
+  transition: all 0.3s ease;
   box-shadow: ${props => props.$scrolled
-    ? '0 4px 24px rgba(0, 0, 0, 0.05)'
+    ? '0 8px 32px rgba(0, 0, 0, 0.6)'
     : 'none'};
 `;
 
 const Nav = styled.nav`
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -46,30 +48,34 @@ const Nav = styled.nav`
 const LogoWrap = styled(Link)`
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
   transition: opacity 0.2s;
   flex-shrink: 0;
-
-  &:hover { opacity: 0.85; }
+  &:hover { opacity: 0.9; }
 `;
 
 const LogoImg = styled.img`
-  height: 34px;
+  height: 32px;
   width: auto;
   object-fit: contain;
 
   @media (max-width: 768px) {
-    height: 28px;
+    height: 26px;
   }
 `;
 
 const NavLinks = styled.ul`
   display: flex;
   list-style: none;
-  gap: 0.2rem;
+  gap: 0.4rem;
   margin: 0;
-  padding: 0;
+  padding: 0.35rem 0.5rem;
   align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
 
   @media (max-width: 768px) {
     display: none;
@@ -77,24 +83,25 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled(Link)`
-  color: #475569;
+  color: #94a3b8;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.875rem;
-  padding: 0.5rem 0.9rem;
-  border-radius: 9px;
-  transition: all 0.22s;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  transition: all 0.22s ease;
   position: relative;
 
   &:hover {
-    color: #0f172a;
-    background: #f1f5f9;
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.06);
   }
 
   ${props => props.$active && css`
-    color: #2563eb;
-    background: #eff6ff;
-    &:hover { background: #dbeafe; color: #1d4ed8; }
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    &:hover { background: rgba(56, 189, 248, 0.18); color: #7dd3fc; }
   `}
 `;
 
@@ -107,21 +114,24 @@ const HeaderRight = styled.div`
 const DemoButton = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1.3rem;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+  background-size: 200% auto;
   color: white;
-  border-radius: 10px;
-  font-size: 0.875rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.25s;
-  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.32);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   white-space: nowrap;
 
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.42);
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(6, 182, 212, 0.55);
+    background-position: right center;
   }
 
   @media (max-width: 480px) {
@@ -131,20 +141,20 @@ const DemoButton = styled.a`
 
 const MobileMenuButton = styled.button`
   display: none;
-  background: none;
-  border: 1px solid #e2e8f0;
-  color: #475569;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
   font-size: 1.1rem;
   cursor: pointer;
-  padding: 0.5rem 0.625rem;
-  border-radius: 9px;
+  padding: 0.5rem 0.65rem;
+  border-radius: 10px;
   transition: all 0.2s;
   line-height: 1;
 
   &:hover {
-    background: #f1f5f9;
-    color: #0f172a;
-    border-color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   @media (max-width: 768px) {
@@ -155,18 +165,20 @@ const MobileMenuButton = styled.button`
 `;
 
 const MobileMenu = styled.div`
-  background: white;
-  border-top: 1px solid #f1f5f9;
-  padding: 1rem 1.25rem 1.25rem;
+  background: rgba(3, 7, 18, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem 1.5rem;
   display: ${props => props.$open ? 'flex' : 'none'};
   flex-direction: column;
-  gap: 0.25rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
-  animation: ${slideDown} 0.2s ease-out;
+  gap: 0.35rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  animation: ${slideDown} 0.25s ease-out;
 `;
 
 const MobileNavLink = styled(Link)`
-  color: #475569;
+  color: #94a3b8;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
@@ -175,32 +187,35 @@ const MobileNavLink = styled(Link)`
   transition: all 0.2s;
 
   &:hover {
-    color: #0f172a;
-    background: #f8fafc;
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.05);
   }
 
   ${props => props.$active && css`
-    color: #2563eb;
-    background: #eff6ff;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
   `}
 `;
 
 const MobileDemoBtn = styled.a`
-  display: block;
-  text-align: center;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
   color: white;
   padding: 0.875rem;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   text-decoration: none;
   margin-top: 0.75rem;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
   transition: all 0.25s;
 
   &:hover {
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 28px rgba(6, 182, 212, 0.5);
   }
 `;
 
@@ -210,7 +225,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 18);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -221,8 +236,8 @@ const Header = () => {
 
   const navItems = [
     { path: '/', label: 'Beranda' },
-    { path: '/pillars', label: 'Fitur Lengkap' },
-    { path: '/techstack', label: 'Cara Kerja' },
+    { path: '/pillars', label: '7 Modul & Fitur' },
+    { path: '/techstack', label: 'Arsitektur & Alur' },
     { path: '/contact', label: 'Hubungi Kami' },
   ];
 
@@ -249,7 +264,8 @@ const Header = () => {
 
           <HeaderRight>
             <DemoButton href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
-              Coba Gratis ↗
+              <span>Coba Demo</span>
+              <ArrowUpRightIcon size={15} />
             </DemoButton>
             <MobileMenuButton
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -273,7 +289,8 @@ const Header = () => {
           </MobileNavLink>
         ))}
         <MobileDemoBtn href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
-          🚀 Coba Demo Gratis
+          <SparklesIcon size={18} />
+          <span>Coba Demo Gratis ↗</span>
         </MobileDemoBtn>
       </MobileMenu>
     </HeaderWrapper>
