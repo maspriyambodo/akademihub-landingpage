@@ -441,6 +441,11 @@ const FAQAnswer = styled.p`
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
