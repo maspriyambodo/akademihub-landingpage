@@ -1,4 +1,3 @@
-import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { ArrowUpRightIcon, SparklesIcon } from './Icons';
@@ -45,7 +44,7 @@ const Nav = styled.nav`
   }
 `;
 
-const LogoWrap = styled(Link)`
+const LogoWrap = styled.a`
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -82,7 +81,7 @@ const NavLinks = styled.ul`
   }
 `;
 
-const NavLink = styled(Link)`
+const NavLink = styled.a`
   color: #94a3b8;
   text-decoration: none;
   font-weight: 600;
@@ -131,7 +130,6 @@ const DemoButton = styled.a`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 28px rgba(6, 182, 212, 0.55);
-    background-position: right center;
   }
 
   @media (max-width: 480px) {
@@ -177,7 +175,7 @@ const MobileMenu = styled.div`
   animation: ${slideDown} 0.25s ease-out;
 `;
 
-const MobileNavLink = styled(Link)`
+const MobileNavLink = styled.a`
   color: #94a3b8;
   text-decoration: none;
   font-size: 0.95rem;
@@ -220,7 +218,7 @@ const MobileDemoBtn = styled.a`
 `;
 
 const Header = () => {
-  const location = useLocation();
+  const pathname = window.location.pathname.replace(/\/$/, '') || '/';
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -229,10 +227,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
 
   const navItems = [
     { path: '/', label: 'Beranda' },
@@ -245,16 +239,16 @@ const Header = () => {
     <HeaderWrapper>
       <HeaderContainer $scrolled={scrolled}>
         <Nav>
-          <LogoWrap to="/">
-            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub Logo" />
+          <LogoWrap href="/">
+            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub Logo" width="2953" height="886" />
           </LogoWrap>
 
           <NavLinks>
             {navItems.map((item) => (
               <li key={item.path}>
                 <NavLink
-                  to={item.path}
-                  $active={location.pathname === item.path}
+                  href={item.path}
+                  $active={pathname === item.path}
                 >
                   {item.label}
                 </NavLink>
@@ -281,8 +275,8 @@ const Header = () => {
         {navItems.map((item) => (
           <MobileNavLink
             key={item.path}
-            to={item.path}
-            $active={location.pathname === item.path}
+            href={item.path}
+            $active={pathname === item.path}
             onClick={() => setMobileOpen(false)}
           >
             {item.label}

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {
   SchoolIcon,
@@ -46,11 +45,6 @@ const livePing = keyframes`
   0% { transform: scale(0.9); opacity: 1; }
   70% { transform: scale(2.2); opacity: 0; }
   100% { transform: scale(0.9); opacity: 0; }
-`;
-const gradientShift = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 `;
 
 /* ── Hooks ── */
@@ -186,11 +180,9 @@ const MainHeading = styled.h1`
 
   .glow-text {
     background: linear-gradient(135deg, #38bdf8 0%, #a78bfa 50%, #34d399 100%);
-    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: ${gradientShift} 6s ease infinite;
   }
 `;
 
@@ -228,11 +220,10 @@ const GlowPrimaryBtn = styled.a`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 40px rgba(6, 182, 212, 0.65);
-    background-position: right center;
   }
 `;
 
-const GlassSecondaryBtn = styled(Link)`
+const GlassSecondaryBtn = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -917,7 +908,7 @@ const Home = () => {
               <ArrowUpRightIcon size={18} />
             </GlowPrimaryBtn>
 
-            <GlassSecondaryBtn to="/pillars">
+            <GlassSecondaryBtn href="/pillars">
               <span>Eksplor 7 Modul</span>
               <ArrowRightIcon size={18} />
             </GlassSecondaryBtn>
@@ -1191,7 +1182,7 @@ const Home = () => {
               <GlowPrimaryBtn href="https://app.akademihub.id" target="_blank" rel="noopener noreferrer">
                 <span>Buka Demo AkademiHub ↗</span>
               </GlowPrimaryBtn>
-              <GlassSecondaryBtn to="/contact">
+              <GlassSecondaryBtn href="/contact">
                 <span>Hubungi Tim Sales</span>
                 <ArrowRightIcon size={18} />
               </GlassSecondaryBtn>

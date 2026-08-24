@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { MailIcon, WhatsAppIcon, GlobeIcon, ArrowUpRightIcon, MapPinIcon } from './Icons';
 
@@ -179,7 +178,7 @@ const FooterLinks = styled.ul`
   gap: 0.65rem;
 `;
 
-const FooterLink = styled(Link)`
+const FooterLink = styled.a`
   color: #94a3b8;
   text-decoration: none;
   font-size: 0.88rem;
@@ -285,7 +284,7 @@ const Footer = () => {
       <FooterContent>
         <Brand>
           <BrandLogoRow>
-            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub" />
+            <LogoImg src="/logo-akademihub-horizontal.png" alt="AkademiHub" width="2953" height="886" loading="lazy" />
           </BrandLogoRow>
           <BrandDesc>
             Sistem Informasi Akademik & Manajemen Sekolah Terpadu generasi baru. Mengintegrasikan seluruh aktivitas sekolah secara real-time dan otomatis.
@@ -311,23 +310,23 @@ const Footer = () => {
         <FooterGroup>
           <GroupTitle>Navigasi</GroupTitle>
           <FooterLinks>
-            <li><FooterLink to="/">Beranda</FooterLink></li>
-            <li><FooterLink to="/pillars">7 Modul Fitur</FooterLink></li>
-            <li><FooterLink to="/techstack">Arsitektur & Alur</FooterLink></li>
-            <li><FooterLink to="/contact">Hubungi Kami</FooterLink></li>
+            <li><FooterLink href="/">Beranda</FooterLink></li>
+            <li><FooterLink href="/pillars">7 Modul Fitur</FooterLink></li>
+            <li><FooterLink href="/techstack">Arsitektur & Alur</FooterLink></li>
+            <li><FooterLink href="/contact">Hubungi Kami</FooterLink></li>
           </FooterLinks>
         </FooterGroup>
 
         <FooterGroup>
           <GroupTitle>7 Modul Utama</GroupTitle>
           <FooterLinks>
-            <li><FooterLink to="/pillars">Data Induk Sekolah</FooterLink></li>
-            <li><FooterLink to="/pillars">KBM & Ujian Online</FooterLink></li>
-            <li><FooterLink to="/pillars">Keuangan & Tagihan</FooterLink></li>
-            <li><FooterLink to="/pillars">Bimbingan Konseling</FooterLink></li>
-            <li><FooterLink to="/pillars">Perpustakaan Digital</FooterLink></li>
-            <li><FooterLink to="/pillars">PPDB Online Terpadu</FooterLink></li>
-            <li><FooterLink to="/pillars">SPK & Rekomendasi AI</FooterLink></li>
+            <li><FooterLink href="/pillars">Data Induk Sekolah</FooterLink></li>
+            <li><FooterLink href="/pillars">KBM & Ujian Online</FooterLink></li>
+            <li><FooterLink href="/pillars">Keuangan & Tagihan</FooterLink></li>
+            <li><FooterLink href="/pillars">Bimbingan Konseling</FooterLink></li>
+            <li><FooterLink href="/pillars">Perpustakaan Digital</FooterLink></li>
+            <li><FooterLink href="/pillars">PPDB Online Terpadu</FooterLink></li>
+            <li><FooterLink href="/pillars">SPK & Rekomendasi AI</FooterLink></li>
           </FooterLinks>
         </FooterGroup>
 

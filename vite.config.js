@@ -29,7 +29,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           // Split vendor chunks untuk optimasi loading
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+          vendor: ['react', 'react-dom'],
           styles: ['styled-components'],
         },
       },

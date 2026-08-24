@@ -1,9 +1,7 @@
 /**
  * App Component
- * Komponen root aplikasi yang menyusun layout dengan Header, Outlet, dan Footer
- * Menggunakan React Router v7 Outlet untuk render child routes
+ * Komponen root aplikasi yang menyusun layout dengan Header, konten, dan Footer
  */
-import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -19,15 +17,15 @@ const MainContent = styled.main`
   flex: 1;
 `;
 
-function App() {
+function App({ children }) {
   return (
     <AppContainer>
       {/* Header Navigation */}
       <Header />
       
-      {/* Main Content - Render child routes via Outlet */}
+      {/* Main Content */}
       <MainContent>
-        <Outlet />
+        {children}
       </MainContent>
       
       {/* Footer */}

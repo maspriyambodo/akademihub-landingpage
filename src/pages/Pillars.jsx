@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
 import {
   SchoolIcon,
   BookOpenIcon,
@@ -26,11 +25,6 @@ const fadeUp = keyframes`
 const pulseGlow = keyframes`
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.08); }
-`;
-const gradientShift = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 `;
 
 const PageContainer = styled.div`
@@ -103,7 +97,6 @@ const HeroTitle = styled.h1`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: ${gradientShift} 6s ease infinite;
   }
 `;
 
@@ -360,7 +353,7 @@ const GlowPrimaryBtn = styled.a`
   }
 `;
 
-const GlassSecondaryBtn = styled(Link)`
+const GlassSecondaryBtn = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -634,7 +627,7 @@ const Pillars = () => {
                 <span>Buka Demo AkademiHub</span>
                 <ArrowUpRightIcon size={16} />
               </GlowPrimaryBtn>
-              <GlassSecondaryBtn to="/contact">
+              <GlassSecondaryBtn href="/contact">
                 <span>Konsultasi Kebutuhan</span>
                 <ArrowRightIcon size={16} />
               </GlassSecondaryBtn>
